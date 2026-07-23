@@ -1,6 +1,7 @@
 @import url(/src/assets/css/header.css);
 @import url(/src/assets/css/footer.css);
 @import url(/src/assets/css/index.css);
+@import url(/src/assets/css/inner-page.css);
 
 :root {
   --primary-color: #fff;
