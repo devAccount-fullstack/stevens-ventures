@@ -1,60 +1,305 @@
-import './style.css'
-import javascriptLogo from './assets/javascript.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import { setupCounter } from './counter.js'
+import './style.css';
+import { renderHero } from './components/hero.js';
+import { renderCompanies } from './components/companies.js';
+import { setupCardFilter } from './components/filterCards.js';
 
-document.querySelector('#app').innerHTML = `
-<section id="center">
-  <div class="hero">
-    <img src="${heroImg}" class="base" width="170" height="179">
-    <img src="${javascriptLogo}" class="framework" alt="JavaScript logo"/>
-    <img src="${viteLogo}" class="vite" alt="Vite logo" />
-  </div>
-  <div>
-    <h1>Get started</h1>
-    <p>Edit <code>src/main.js</code> and save to test <code>HMR</code></p>
-  </div>
-  <button id="counter" type="button" class="counter"></button>
-</section>
 
-<div class="ticks"></div>
+document.querySelector('#hero-section').innerHTML = renderHero({
+  bgImage: '/src/assets/images/hero-office.jpg',
+  headingLine1: 'Investing in Tomorrow.',
+  headingAccent: 'Today.',
+  text: 'Our fund focus on new, innovative models in the consumer internet and business services.',
+  buttons: [
+    { label: 'Apply', href: '/apply', style: 'gray', icon: '<img src="/src/assets/images/curve-arrow.svg" alt="">' },
+    { label: 'Invest', href: '/invest', style: 'accent', icon: '<img src="/src/assets/images/daf.svg" alt="">' },
+  ],
+});
 
-<section id="next-steps">
-  <div id="docs">
-    <svg class="icon" role="presentation" aria-hidden="true"><use href="/icons.svg#documentation-icon"></use></svg>
-    <h2>Documentation</h2>
-    <p>Your questions, answered</p>
-    <ul>
-      <li>
-        <a href="https://vite.dev/" target="_blank">
-          <img class="logo" src="${viteLogo}" alt="" />
-          Explore Vite
-        </a>
-      </li>
-      <li>
-        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-          <img class="button-icon" src="${javascriptLogo}" alt="">
-          Learn more
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div id="social">
-    <svg class="icon" role="presentation" aria-hidden="true"><use href="/icons.svg#social-icon"></use></svg>
-    <h2>Connect with us</h2>
-    <p>Join the Vite community</p>
-    <ul>
-      <li><a href="https://github.com/vitejs/vite" target="_blank"><svg class="button-icon" role="presentation" aria-hidden="true"><use href="/icons.svg#github-icon"></use></svg>GitHub</a></li>
-      <li><a href="https://chat.vite.dev/" target="_blank"><svg class="button-icon" role="presentation" aria-hidden="true"><use href="/icons.svg#discord-icon"></use></svg>Discord</a></li>
-      <li><a href="https://x.com/vite_js" target="_blank"><svg class="button-icon" role="presentation" aria-hidden="true"><use href="/icons.svg#x-icon"></use></svg>X.com</a></li>
-      <li><a href="https://bsky.app/profile/vite.dev" target="_blank"><svg class="button-icon" role="presentation" aria-hidden="true"><use href="/icons.svg#bluesky-icon"></use></svg>Bluesky</a></li>
-    </ul>
-  </div>
-</section>
+document.querySelector('#hero-section-2').innerHTML = renderHero({
+  bgImage: '/src/assets/images/automotive-retail.webp',
+  headingLine1: 'We Develop',
+  headingAccent: 'Automotive Retail.',
+  text: 'Our fund focus on new, innovative models in the consumer internet and business services.',
+  buttons: [
+    { label: 'Go on Website', href: '/', style: 'gray', icon: '<img src="/src/assets/images/arrow-circle.svg" alt="">' },
+  ],
+});
 
-<div class="ticks"></div>
-<section id="spacer"></section>
-`
+document.querySelector('#hero-section-3').innerHTML = renderHero({
+  bgImage: '/src/assets/images/philantrophic-foundation.webp',
+  headingLine1: 'Stevens Philanthropic',
+  headingAccent: 'Foundation',
+  text: "The Stevens Foundation allows the pair's diverse philanthropic and charitable interests to converge under one umbrella.",
+  buttons: [
+    { label: 'Go on Website', href: '/', style: 'gray', icon: '<img src="/src/assets/images/arrow-circle.svg" alt="">' },
+  ],
+});
 
-setupCounter(document.querySelector('#counter'))
+const categories = [
+  { label: 'All Companies', filterClass: 'cat-all' },
+  { label: 'Technology&Marketing', filterClass: 'cat-tech', dataFilter: 'card-tech' },
+  { label: 'Automotive Retail', filterClass: 'cat-auto', dataFilter: 'card-auto' },
+  { label: 'Investors', filterClass: 'cat-inv', dataFilter: 'card-inv' },
+  { label: 'Rental Properties', filterClass: 'cat-rent', dataFilter: 'card-rent' },
+  { label: 'Short Term Accomodations', filterClass: 'cat-sta', dataFilter: 'card-sta' },
+  { label: 'Film', filterClass: 'cat-film', dataFilter: 'card-film' },
+];
+
+const cards = [
+  {
+    cardClasses: ['card-rent', 'card-sta'],
+    categories: [
+      { class: 'rent', label: 'Rental Properties' },
+      { class: 'sta', label: 'Short Term Accomodation' },
+    ],
+    bgImage: '/src/assets/images/card-assets/miami-bg.png',
+    logo: '/src/assets/images/card-assets/miami-logo.svg',
+    heading: 'Miami, FL',
+    subheading: 'Miami is a vibrant coastal city known for its stunning beaches, dynamic nightlife, and diverse cultural scene.',
+    href: '',
+  },
+  {
+    cardClasses: ['card-tech'],
+    categories: [
+      { class: 'tech', label: 'Technology&Marketing' },
+    ],
+    bgImage: '/src/assets/images/card-assets/yodle-bg.png',
+    logo: '/src/assets/images/card-assets/yodle-logo.svg',
+    heading: 'Yodle',
+    subheading: 'Simply put, we create digital solutions that help businesses thrive. We build results-driven marketing solutions to grow your business.',
+    href: '',
+  },
+  {
+    cardClasses: ['card-auto'],
+    categories: [
+      { class: 'auto', label: 'Automotive Retail' },
+    ],
+    bgImage: '/src/assets/images/card-assets/lincoln-bg.png',
+    logo: '/src/assets/images/card-assets/lincoln-logo.svg',
+    logoClass: 'lincoln',
+    heading: 'Lincoln of Milford',
+    subheading: "When you're looking for exceptional new and pre-owned vehicles at the lowest prices around, Lincoln of Milford is the place to go. We have devoted ourselves to helping and serving our customers.",
+    href: '',
+  },
+  {
+    cardClasses: ['card-tech'],
+    categories: [
+      { class: 'tech', label: 'Technology&Marketing' },
+    ],
+    bgImage: '/src/assets/images/card-assets/tattoopro-bg.png',
+    logo: '/src/assets/images/card-assets/tattoopro-logo.svg',
+    heading: 'TattooPro',
+    subheading: "When you're looking for exceptional new and pre-owned vehicles at the lowest prices around, Lincoln of Milford is the place to go. We have devoted ourselves to helping and serving our customers.",
+    href: '',
+  },
+  {
+    cardClasses: ['card-auto'],
+    categories: [
+      { class: 'auto', label: 'Automotive Retail' },
+    ],
+    bgImage: '/src/assets/images/card-assets/stevens-auto-group-bg.png',
+    logo: '/src/assets/images/card-assets/stevens-auto-group-logo.svg',
+    heading: 'Stevens Auto Group',
+    subheading: 'At Stevens Ford, we pride ourselves on offering an extensive inventory of Ford vehicles, from the rugged Ford F-150 to the versatile Ford Escape.',
+    href: '',
+  },
+  {
+    cardClasses: ['card-tech'],
+    categories: [
+      { class: 'tech', label: 'Technology&Marketing' },
+    ],
+    bgImage: '/src/assets/images/card-assets/punchey-bg.png',
+    logo: '/src/assets/images/card-assets/punchey-logo.svg',
+    heading: 'Punchey, Inc',
+    subheading: 'Everything owners & operators need to successfully manage and grow their business. We build industry-specific apps that are tailor-designed to help local service businesses succeed.',
+    href: '',
+  },
+  {
+    cardClasses: ['card-2', 'card-tech'],
+    categories: [
+      { class: 'tech', label: 'Technology&Marketing' },
+    ],
+    bgImage: '/src/assets/images/card-assets/lvs-bg.png',
+    logo: '/src/assets/images/card-assets/lvs-logo.svg',
+    heading: 'LVS Digital',
+    subheading: 'LVS Digital Marketing helps purpose driven female entrepreneurs avoid burnout, save time creating strategic content and generate more leads while setting their omni-channel marketing strategy on autopilot.',
+    href: '',
+  },
+  {
+    cardClasses: ['card-2', 'card-tech'],
+    categories: [
+      { class: 'tech', label: 'Technology&Marketing' },
+    ],
+    bgImage: '/src/assets/images/card-assets/detailpropos-bg.png',
+    logo: '/src/assets/images/card-assets/detailpropos-logo.svg',
+    heading: 'DetailPro',
+    subheading: 'The Top-Rated System for Attracting, Servicing and Retaining Customers You Have Ambitions, We have the Formula Beautiful Site + Unbeatable Software + Loving Customer Service = Success.',
+    href: '',
+  },
+  {
+    cardClasses: ['card-2', 'card-auto'],
+    categories: [
+      { class: 'auto', label: 'Automotive Retail' },
+    ],
+    bgImage: '/src/assets/images/card-assets/stevens-collision-bg.png',
+    logo: '/src/assets/images/card-assets/stevens-collision-logo.svg',
+    heading: 'Stevens Collision Center',
+    subheading: 'We strive to be respectful of your time without any hassle or haggle and to deliver an upfront, comfortable purchase experience!',
+    href: '',
+  },
+  {
+    cardClasses: ['card-2', 'card-auto'],
+    categories: [
+      { class: 'auto', label: 'Automotive Retail' },
+    ],
+    bgImage: '/src/assets/images/card-assets/milford-bg.png',
+    logo: '/src/assets/images/card-assets/milford-logo.svg',
+    heading: 'Stevens Ford of Milford',
+    subheading: 'At Stevens Ford Of Milford, we believe that buying a vehicle in Milford should be as straight forward as possible.',
+    href: '',
+  },
+  {
+    cardClasses: ['card-2', 'card-inv'],
+    categories: [
+      { class: 'inv', label: 'Investors' },
+    ],
+    bgImage: '/src/assets/images/card-assets/ventures-bg.png',
+    logo: '/src/assets/images/card-assets/ventures-logo.svg',
+    heading: 'Stevens Ventures',
+    subheading: 'At Stevens Ford Of Milford, we believe that buying a vehicle in Milford should be as straight forward as possible.',
+    href: '',
+  },
+  {
+    cardClasses: ['card-2', 'card-rent'],
+    categories: [
+      { class: 'rent', label: 'Rental Properties' },
+    ],
+    bgImage: '/src/assets/images/card-assets/greenwich-bg.png',
+    logo: '/src/assets/images/card-assets/greenwich-logo.svg',
+    heading: 'Greenwich, CT',
+    subheading: 'Greenwich, CT, is a picturesque town known for its upscale living and beautiful waterfront views. Rich in history and charm, it\u2019s a favorite spot for New York City commuters.',
+    href: '',
+  },
+  {
+    cardClasses: ['card-3', 'card-rent'],
+    categories: [
+      { class: 'rent', label: 'Rental Properties' },
+    ],
+    bgImage: '/src/assets/images/card-assets/nyc-bg.png',
+    logo: '/src/assets/images/card-assets/nyc-logo.svg',
+    heading: 'Manhattan, NY',
+    subheading: 'Manhattan, NY, is the bustling heart of New York City, famous for its iconic skyline and vibrant culture. Home to Times Square and Central Park, it\u2019s a global hub of finance, fashion, and entertainment.',
+    href: '',
+  },
+  {
+    cardClasses: ['card-3', 'card-sta'],
+    categories: [
+      { class: 'sta', label: 'Short Term Accomodations' },
+    ],
+    bgImage: '/src/assets/images/card-assets/marthas-bg.png',
+    logo: '/src/assets/images/card-assets/marthas-logo.svg',
+    heading: 'Martha\u2019s Vineyard',
+    subheading: 'Martha\u2019s Vineyard is a charming island off the coast of Massachusetts, known for its sandy beaches and quaint seaside towns.',
+    href: '',
+  },
+  {
+    cardClasses: ['card-3', 'card-sta'],
+    categories: [
+      { class: 'sta', label: 'Short Term Accomodations' },
+    ],
+    bgImage: '/src/assets/images/card-assets/sawadee-bg.png',
+    logo: '/src/assets/images/card-assets/sawadee-logo.svg',
+    heading: 'Ko Samui',
+    subheading: 'Ko Samui is a tropical paradise in Thailand, known for its palm-fringed beaches and vibrant nightlife.',
+    href: '',
+  },
+  {
+    cardClasses: ['card-3', 'card-sta'],
+    categories: [
+      { class: 'sta', label: 'Short Term Accomodations' },
+    ],
+    bgImage: '/src/assets/images/card-assets/kho-pang-bg.png',
+    logo: '/src/assets/images/card-assets/kho-pang-logo.svg',
+    heading: 'Kho Pha Ngan',
+    subheading: 'Ko Pha Ngan is a Thai island famous for its legendary Full Moon Parties and lush jungle landscapes.',
+    href: '',
+  },
+  {
+    cardClasses: ['card-3', 'card-film'],
+    categories: [
+      { class: 'film', label: 'Films' },
+    ],
+    bgImage: '/src/assets/images/card-assets/dead-man-bg.png',
+    logo: '',
+    heading: 'Dead Men Walking',
+    subheading: 'Dead Man Walking is a 1995 American crime drama film starring Susan Sarandon and Sean Penn.',
+    href: '',
+  },
+  {
+    cardClasses: ['card-3', 'card-film'],
+    categories: [
+      { class: 'film', label: 'Films' },
+    ],
+    bgImage: '/src/assets/images/card-assets/thebay-bg.png',
+    logo: '',
+    heading: 'The Bay',
+    subheading: 'The Bay is a 2012 American mockumentary horror film directed by Barry Levinson and written by Michael Wallach.',
+    href: '',
+  },
+];
+
+document.querySelector('#companies-cards').innerHTML = renderCompanies({ categories, cards });
+setupCardFilter({ perBatch: 6 });
+
+// ===== Header scroll animation + parallax effects =====
+function initScrollEffects() {
+  const header = document.getElementById('header');
+  const windowHeight = window.innerHeight;
+  const maxOffset = 220;
+
+  let lastScrollY = window.scrollY;
+
+  window.addEventListener('scroll', () => {
+    const currentScrollY = window.scrollY;
+
+   
+    if (header) {
+      if (currentScrollY > lastScrollY) {
+        header.style.transform = 'translateY(-100px)'; 
+      } else {
+        header.style.transform = 'translateY(0)'; 
+      }
+
+      header.classList.toggle('scrolled', currentScrollY > 0);
+    }
+
+    lastScrollY = currentScrollY;
+
+    // Hero parallax
+    const hero = document.querySelector('.hero.full-width-bg');
+    if (hero) {
+      const rect = hero.getBoundingClientRect();
+      if (rect.bottom > 0 && rect.top < windowHeight) {
+        const offset = Math.min(currentScrollY / 3, maxOffset);
+        hero.style.setProperty('--parallax-offset', `${offset}px`);
+      }
+    }
+
+    const sections = document.querySelectorAll('.full-width-bg:not(.hero)');
+    sections.forEach((section) => {
+      const rect = section.getBoundingClientRect();
+      if (rect.bottom > 0 && rect.top < windowHeight) {
+        const startValue = -284;
+        const endValue = 0;
+        const range = endValue - startValue;
+
+        const normalizedPosition = 1 - Math.max(0, Math.min(1, rect.top / windowHeight));
+        const offset = startValue + normalizedPosition * range;
+
+        section.style.setProperty('--parallax-offset', `${offset}px`);
+      }
+    });
+  });
+}
+
+initScrollEffects();
