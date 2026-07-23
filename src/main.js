@@ -4,7 +4,7 @@ import { renderCompanies } from './components/companies.js';
 import { setupCardFilter } from './components/filterCards.js';
 import { renderContentCards } from "./components/contentCards";
 import { initCounters } from './components/counters.js';
-import { renderOperateSuccessfully } from './components/operateSuccessfully.js';
+import { renderOperateSuccessfully } from './components/operatesuccessfully.js';
 
 function renderHeroIfExists(selector, data) {
   const element = document.querySelector(selector);
