@@ -600,6 +600,16 @@ section h2 span {
   line-height: 26px;
 }
 
+.resources .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1440px;
+    padding-bottom: 39px;
+    margin: 0 auto;
+}
 .article-description {
   color: var(--med-gray);
 }
@@ -629,6 +639,7 @@ section h2 span {
 .articles-wrapper {
   display: flex;
   justify-content: space-evenly;
+  gap: 20px;
 }
 
 .articles-wrapper .swiper-slide {

@@ -28,7 +28,7 @@ footer .content-wrapper {
     display: flex;
     align-items: start;
     flex-direction: row;
-    justify-content: start;
+    justify-content: flex-end;
     gap: 16%;
     width: 69%;
 }
@@ -122,8 +122,43 @@ footer .newsletter-text {
     margin: 0;
 }
 
+.footer-social {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #b8bcc4;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-icon i {
+    font-size: 18px;
+}
+
+.social-icon:hover {
+    background: #ffffff;
+    color: #111827;
+}
+
 footer .rights-text {
     font-size: 14px;
+}
+
+footer .rights-text a {
+    text-decoration: underline;
+    color: #ffffffB3;
 }
 
 #footer-bottom {

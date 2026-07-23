@@ -2,31 +2,41 @@ import './style.css';
 import { renderHero } from './components/hero.js';
 import { renderCompanies } from './components/companies.js';
 import { setupCardFilter } from './components/filterCards.js';
+import { renderContentCards } from "./components/contentCards";
 
 
-document.querySelector('#hero-section').innerHTML = renderHero({
-  bgImage: '/images/hero-section.webp',
-  headingLine1: 'Investing in Tomorrow.',
-  headingAccent: 'Today.',
-  text: 'Our fund focus on new, innovative models in the consumer internet and business services.',
-  buttons: [
-    { label: 'Apply', href: '/apply', style: 'gray', icon: '<img src="/images/curve-arrow.svg" alt="">' },
-    { label: 'Invest', href: '/invest', style: 'accent', icon: '<img src="/images/daf.svg" alt="">' },
-  ],
+
+function renderHeroIfExists(selector, data) {
+  const element = document.querySelector(selector);
+
+  if (!element) return;
+
+  element.innerHTML = renderHero(data);
+}
+
+renderHeroIfExists('#hero-section', {
+   bgImage: '/images/hero-section.webp',
+    headingLine1: 'Investing in Tomorrow.',
+    headingAccent: 'Today.',
+    text: 'Our fund focus on new, innovative models in the consumer internet and business services.',
+    buttons: [
+      { label: 'Apply', href: '/apply', style: 'gray', icon: '<img src="/images/curve-arrow.svg" alt="">' },
+      { label: 'Invest', href: '/invest', style: 'accent', icon: '<img src="/images/daf.svg" alt="">' },
+    ],
 });
 
-document.querySelector('#hero-section-2').innerHTML = renderHero({
+renderHeroIfExists('#hero-section-2', {
   bgImage: '/images/automotive-retail.webp',
-  headingLine1: 'We Develop',
-  headingAccent: 'Automotive Retail.',
-  text: 'Our fund focus on new, innovative models in the consumer internet and business services.',
-  buttons: [
-    { label: 'Go on Website', href: '/', style: 'gray', icon: '<img src="/images/arrow-circle.svg" alt="">' },
-  ],
+    headingLine1: 'We Develop',
+    headingAccent: 'Automotive Retail.',
+    text: 'Our fund focus on new, innovative models in the consumer internet and business services.',
+    buttons: [
+      { label: 'Go on Website', href: '/', style: 'gray', icon: '<img src="/images/arrow-circle.svg" alt="">' },
+    ],
 });
 
-document.querySelector('#hero-section-3').innerHTML = renderHero({
-  bgImage: '/images/philantrophic-foundation.webp',
+renderHeroIfExists('#hero-section-3', {
+   bgImage: '/images/philantrophic-foundation.webp',
   headingLine1: 'Stevens Philanthropic',
   headingAccent: 'Foundation',
   text: "The Stevens Foundation allows the pair's diverse philanthropic and charitable interests to converge under one umbrella.",
@@ -35,6 +45,45 @@ document.querySelector('#hero-section-3').innerHTML = renderHero({
   ],
 });
 
+renderHeroIfExists('#hero-section-about', {
+  bgImage: '/images/about-us-hero.jpg',
+  headingLine1: 'About',
+  headingAccent: 'Us',
+  text: "",
+  buttons: [ ],
+});
+
+document.querySelector("#resources").innerHTML = renderContentCards({
+  title: "Resources",
+  subtitle: "About Us",
+  cards: [
+    {
+      image: "/images/article-img1.png",
+      title: "Our Story",
+      description: "Learn how Stevens Ventures began.",
+      buttonText: "Read More",
+      href: "/about",
+    },
+    {
+      image: "/images/article-img2.png",
+      title: "Our Mission",
+      description: "Building businesses that create lasting value.",
+      buttonText: "Discover",
+      href: "/mission",
+    },
+    {
+      image: "/images/article-img3.png",
+      title: "Leadership",
+      description: "Meet the people behind Stevens Ventures.",
+      buttonText: "Meet the Team",
+      href: "/leadership",
+    },
+  ],
+  button: {
+    label: "View More",
+    href: "/about",
+  },
+});
 const categories = [
   { label: 'All Companies', filterClass: 'cat-all' },
   { label: 'Technology&Marketing', filterClass: 'cat-tech', dataFilter: 'card-tech' },
