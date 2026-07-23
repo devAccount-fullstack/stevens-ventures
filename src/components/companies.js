@@ -29,7 +29,7 @@ export function renderCompanies({ categories = [], cards = [] } = {}) {
 
         <div class="button-group-wrapper">
           <a id="see-more" class="btn icon transparent" style="display: none;">
-            <img src="/src/assets/images/icon-down-gray.svg" alt="">
+            <img src="/images/icon-down-gray.svg" alt="">
             See More
           </a>
         </div>
