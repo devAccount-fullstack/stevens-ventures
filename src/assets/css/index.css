@@ -201,6 +201,17 @@ section h2 span {
   padding: 120px 40px;
 }
 
+.operate-successfully .content-wrapper {
+      display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1440px;
+    padding-bottom: 39px;
+    margin: 0 auto;
+}
+
 .operate-successfully h2 {
   width: 625px;
   margin: auto;
@@ -215,6 +226,10 @@ section h2 span {
   font-size: 15px;
   line-height: 25px;
   text-align: center;
+}
+
+.map-block-counters {
+  margin-top: 48px;
 }
 
 .careers {

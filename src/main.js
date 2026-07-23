@@ -3,8 +3,8 @@ import { renderHero } from './components/hero.js';
 import { renderCompanies } from './components/companies.js';
 import { setupCardFilter } from './components/filterCards.js';
 import { renderContentCards } from "./components/contentCards";
-
-
+import { initCounters } from './components/counters.js';
+import { renderOperateSuccessfully } from './components/operateSuccessfully.js';
 
 function renderHeroIfExists(selector, data) {
   const element = document.querySelector(selector);
@@ -42,6 +42,16 @@ renderHeroIfExists('#hero-section-3', {
   text: "The Stevens Foundation allows the pair's diverse philanthropic and charitable interests to converge under one umbrella.",
   buttons: [
     { label: 'Go on Website', href: '/', style: 'gray', icon: '<img src="/images/arrow-circle.svg" alt="">' },
+  ],
+});
+
+renderHeroIfExists('#hero-section-4', {
+   bgImage: '/images/more-about.webp',
+  headingLine1: 'More About',
+  headingAccent: 'Stevens Ventures Companies',
+  text: "We prefer investments that deal within our core area of expertise. More specifically, this includes online marketing services, financial services, consumer content and publishing, mobile applications, and SMB-focused SAAS models providing marketing, business operations, or technology capabilities.",
+  buttons: [
+    { label: 'Read More', href: '/', style: 'gray', icon: '<img src="/images/double-arrow.svg" alt="">' },
   ],
 });
 
@@ -352,3 +362,20 @@ function initScrollEffects() {
 }
 
 initScrollEffects();
+
+
+document.querySelector('#operate-successfully-placeholder').innerHTML = renderOperateSuccessfully({
+  heading1: 'We Operate Successfully',
+  heading2: 'Even Outside the USA',
+  text: 'Stevens Ventures is a venture capital and investment firm based in Milford, CT. Our primary focus is on early-stage companies that provide innovative solutions to everyday problems faced by consumers and or businesses.',
+  buttons: [
+    { label: 'Apply', href: '/apply', style: 'transparent', icon: '<img src="/images/circle-arrow-right.svg" alt="">' },
+    { label: 'Invest', href: '/invest', style: 'black', icon: '<img src="/images/daf-gray.svg" alt="">' },
+  ],
+  counters: [
+    { target: 12, label: 'Countries' },
+    { target: 15, label: 'Investors', suffix: 'K' },
+    { target: 38, label: 'Companies' },
+  ],
+});
+initCounters();
