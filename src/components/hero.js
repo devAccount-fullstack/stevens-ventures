@@ -16,7 +16,7 @@ export function renderHero({
     label: 'Invest',
     href: '#',
     style: 'accent',
-    icon: `<img src="/src/assets/images/daf.svg" alt="">`,
+    icon: `<img src="/images/daf.svg" alt="">`,
   },
 ],
 } = {}) {

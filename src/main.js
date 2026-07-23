@@ -5,33 +5,33 @@ import { setupCardFilter } from './components/filterCards.js';
 
 
 document.querySelector('#hero-section').innerHTML = renderHero({
-  bgImage: '/src/assets/images/hero-office.jpg',
+  bgImage: '/images/hero-section.webp',
   headingLine1: 'Investing in Tomorrow.',
   headingAccent: 'Today.',
   text: 'Our fund focus on new, innovative models in the consumer internet and business services.',
   buttons: [
-    { label: 'Apply', href: '/apply', style: 'gray', icon: '<img src="/src/assets/images/curve-arrow.svg" alt="">' },
-    { label: 'Invest', href: '/invest', style: 'accent', icon: '<img src="/src/assets/images/daf.svg" alt="">' },
+    { label: 'Apply', href: '/apply', style: 'gray', icon: '<img src="/images/curve-arrow.svg" alt="">' },
+    { label: 'Invest', href: '/invest', style: 'accent', icon: '<img src="/images/daf.svg" alt="">' },
   ],
 });
 
 document.querySelector('#hero-section-2').innerHTML = renderHero({
-  bgImage: '/src/assets/images/automotive-retail.webp',
+  bgImage: '/images/automotive-retail.webp',
   headingLine1: 'We Develop',
   headingAccent: 'Automotive Retail.',
   text: 'Our fund focus on new, innovative models in the consumer internet and business services.',
   buttons: [
-    { label: 'Go on Website', href: '/', style: 'gray', icon: '<img src="/src/assets/images/arrow-circle.svg" alt="">' },
+    { label: 'Go on Website', href: '/', style: 'gray', icon: '<img src="/images/arrow-circle.svg" alt="">' },
   ],
 });
 
 document.querySelector('#hero-section-3').innerHTML = renderHero({
-  bgImage: '/src/assets/images/philantrophic-foundation.webp',
+  bgImage: '/images/philantrophic-foundation.webp',
   headingLine1: 'Stevens Philanthropic',
   headingAccent: 'Foundation',
   text: "The Stevens Foundation allows the pair's diverse philanthropic and charitable interests to converge under one umbrella.",
   buttons: [
-    { label: 'Go on Website', href: '/', style: 'gray', icon: '<img src="/src/assets/images/arrow-circle.svg" alt="">' },
+    { label: 'Go on Website', href: '/', style: 'gray', icon: '<img src="/images/arrow-circle.svg" alt="">' },
   ],
 });
 
@@ -52,8 +52,8 @@ const cards = [
       { class: 'rent', label: 'Rental Properties' },
       { class: 'sta', label: 'Short Term Accomodation' },
     ],
-    bgImage: '/src/assets/images/card-assets/miami-bg.png',
-    logo: '/src/assets/images/card-assets/miami-logo.svg',
+    bgImage: '/images/card-assets/miami-bg.png',
+    logo: '/images/card-assets/miami-logo.svg',
     heading: 'Miami, FL',
     subheading: 'Miami is a vibrant coastal city known for its stunning beaches, dynamic nightlife, and diverse cultural scene.',
     href: '',
@@ -63,8 +63,8 @@ const cards = [
     categories: [
       { class: 'tech', label: 'Technology&Marketing' },
     ],
-    bgImage: '/src/assets/images/card-assets/yodle-bg.png',
-    logo: '/src/assets/images/card-assets/yodle-logo.svg',
+    bgImage: '/images/card-assets/yodle-bg.png',
+    logo: '/images/card-assets/yodle-logo.svg',
     heading: 'Yodle',
     subheading: 'Simply put, we create digital solutions that help businesses thrive. We build results-driven marketing solutions to grow your business.',
     href: '',
@@ -74,8 +74,8 @@ const cards = [
     categories: [
       { class: 'auto', label: 'Automotive Retail' },
     ],
-    bgImage: '/src/assets/images/card-assets/lincoln-bg.png',
-    logo: '/src/assets/images/card-assets/lincoln-logo.svg',
+    bgImage: '/images/card-assets/lincoln-bg.png',
+    logo: '/images/card-assets/lincoln-logo.svg',
     logoClass: 'lincoln',
     heading: 'Lincoln of Milford',
     subheading: "When you're looking for exceptional new and pre-owned vehicles at the lowest prices around, Lincoln of Milford is the place to go. We have devoted ourselves to helping and serving our customers.",
@@ -86,8 +86,8 @@ const cards = [
     categories: [
       { class: 'tech', label: 'Technology&Marketing' },
     ],
-    bgImage: '/src/assets/images/card-assets/tattoopro-bg.png',
-    logo: '/src/assets/images/card-assets/tattoopro-logo.svg',
+    bgImage: '/images/card-assets/tattoopro-bg.png',
+    logo: '/images/card-assets/tattoopro-logo.svg',
     heading: 'TattooPro',
     subheading: "When you're looking for exceptional new and pre-owned vehicles at the lowest prices around, Lincoln of Milford is the place to go. We have devoted ourselves to helping and serving our customers.",
     href: '',
@@ -97,8 +97,8 @@ const cards = [
     categories: [
       { class: 'auto', label: 'Automotive Retail' },
     ],
-    bgImage: '/src/assets/images/card-assets/stevens-auto-group-bg.png',
-    logo: '/src/assets/images/card-assets/stevens-auto-group-logo.svg',
+    bgImage: '/images/card-assets/stevens-auto-group-bg.png',
+    logo: '/images/card-assets/stevens-auto-group-logo.svg',
     heading: 'Stevens Auto Group',
     subheading: 'At Stevens Ford, we pride ourselves on offering an extensive inventory of Ford vehicles, from the rugged Ford F-150 to the versatile Ford Escape.',
     href: '',
@@ -108,8 +108,8 @@ const cards = [
     categories: [
       { class: 'tech', label: 'Technology&Marketing' },
     ],
-    bgImage: '/src/assets/images/card-assets/punchey-bg.png',
-    logo: '/src/assets/images/card-assets/punchey-logo.svg',
+    bgImage: '/images/card-assets/punchey-bg.png',
+    logo: '/images/card-assets/punchey-logo.svg',
     heading: 'Punchey, Inc',
     subheading: 'Everything owners & operators need to successfully manage and grow their business. We build industry-specific apps that are tailor-designed to help local service businesses succeed.',
     href: '',
@@ -119,8 +119,8 @@ const cards = [
     categories: [
       { class: 'tech', label: 'Technology&Marketing' },
     ],
-    bgImage: '/src/assets/images/card-assets/lvs-bg.png',
-    logo: '/src/assets/images/card-assets/lvs-logo.svg',
+    bgImage: '/images/card-assets/lvs-bg.png',
+    logo: '/images/card-assets/lvs-logo.svg',
     heading: 'LVS Digital',
     subheading: 'LVS Digital Marketing helps purpose driven female entrepreneurs avoid burnout, save time creating strategic content and generate more leads while setting their omni-channel marketing strategy on autopilot.',
     href: '',
@@ -130,8 +130,8 @@ const cards = [
     categories: [
       { class: 'tech', label: 'Technology&Marketing' },
     ],
-    bgImage: '/src/assets/images/card-assets/detailpropos-bg.png',
-    logo: '/src/assets/images/card-assets/detailpropos-logo.svg',
+    bgImage: '/images/card-assets/detailpropos-bg.png',
+    logo: '/images/card-assets/detailpropos-logo.svg',
     heading: 'DetailPro',
     subheading: 'The Top-Rated System for Attracting, Servicing and Retaining Customers You Have Ambitions, We have the Formula Beautiful Site + Unbeatable Software + Loving Customer Service = Success.',
     href: '',
@@ -141,8 +141,8 @@ const cards = [
     categories: [
       { class: 'auto', label: 'Automotive Retail' },
     ],
-    bgImage: '/src/assets/images/card-assets/stevens-collision-bg.png',
-    logo: '/src/assets/images/card-assets/stevens-collision-logo.svg',
+    bgImage: '/images/card-assets/stevens-collision-bg.png',
+    logo: '/images/card-assets/stevens-collision-logo.svg',
     heading: 'Stevens Collision Center',
     subheading: 'We strive to be respectful of your time without any hassle or haggle and to deliver an upfront, comfortable purchase experience!',
     href: '',
@@ -152,8 +152,8 @@ const cards = [
     categories: [
       { class: 'auto', label: 'Automotive Retail' },
     ],
-    bgImage: '/src/assets/images/card-assets/milford-bg.png',
-    logo: '/src/assets/images/card-assets/milford-logo.svg',
+    bgImage: '/images/card-assets/milford-bg.png',
+    logo: '/images/card-assets/milford-logo.svg',
     heading: 'Stevens Ford of Milford',
     subheading: 'At Stevens Ford Of Milford, we believe that buying a vehicle in Milford should be as straight forward as possible.',
     href: '',
@@ -163,8 +163,8 @@ const cards = [
     categories: [
       { class: 'inv', label: 'Investors' },
     ],
-    bgImage: '/src/assets/images/card-assets/ventures-bg.png',
-    logo: '/src/assets/images/card-assets/ventures-logo.svg',
+    bgImage: '/images/card-assets/ventures-bg.png',
+    logo: '/images/card-assets/ventures-logo.svg',
     heading: 'Stevens Ventures',
     subheading: 'At Stevens Ford Of Milford, we believe that buying a vehicle in Milford should be as straight forward as possible.',
     href: '',
@@ -174,8 +174,8 @@ const cards = [
     categories: [
       { class: 'rent', label: 'Rental Properties' },
     ],
-    bgImage: '/src/assets/images/card-assets/greenwich-bg.png',
-    logo: '/src/assets/images/card-assets/greenwich-logo.svg',
+    bgImage: '/images/card-assets/greenwich-bg.png',
+    logo: '/images/card-assets/greenwich-logo.svg',
     heading: 'Greenwich, CT',
     subheading: 'Greenwich, CT, is a picturesque town known for its upscale living and beautiful waterfront views. Rich in history and charm, it\u2019s a favorite spot for New York City commuters.',
     href: '',
@@ -185,8 +185,8 @@ const cards = [
     categories: [
       { class: 'rent', label: 'Rental Properties' },
     ],
-    bgImage: '/src/assets/images/card-assets/nyc-bg.png',
-    logo: '/src/assets/images/card-assets/nyc-logo.svg',
+    bgImage: '/images/card-assets/nyc-bg.png',
+    logo: '/images/card-assets/nyc-logo.svg',
     heading: 'Manhattan, NY',
     subheading: 'Manhattan, NY, is the bustling heart of New York City, famous for its iconic skyline and vibrant culture. Home to Times Square and Central Park, it\u2019s a global hub of finance, fashion, and entertainment.',
     href: '',
@@ -196,8 +196,8 @@ const cards = [
     categories: [
       { class: 'sta', label: 'Short Term Accomodations' },
     ],
-    bgImage: '/src/assets/images/card-assets/marthas-bg.png',
-    logo: '/src/assets/images/card-assets/marthas-logo.svg',
+    bgImage: '/images/card-assets/marthas-bg.png',
+    logo: '/images/card-assets/marthas-logo.svg',
     heading: 'Martha\u2019s Vineyard',
     subheading: 'Martha\u2019s Vineyard is a charming island off the coast of Massachusetts, known for its sandy beaches and quaint seaside towns.',
     href: '',
@@ -207,8 +207,8 @@ const cards = [
     categories: [
       { class: 'sta', label: 'Short Term Accomodations' },
     ],
-    bgImage: '/src/assets/images/card-assets/sawadee-bg.png',
-    logo: '/src/assets/images/card-assets/sawadee-logo.svg',
+    bgImage: '/images/card-assets/sawadee-bg.png',
+    logo: '/images/card-assets/sawadee-logo.svg',
     heading: 'Ko Samui',
     subheading: 'Ko Samui is a tropical paradise in Thailand, known for its palm-fringed beaches and vibrant nightlife.',
     href: '',
@@ -218,8 +218,8 @@ const cards = [
     categories: [
       { class: 'sta', label: 'Short Term Accomodations' },
     ],
-    bgImage: '/src/assets/images/card-assets/kho-pang-bg.png',
-    logo: '/src/assets/images/card-assets/kho-pang-logo.svg',
+    bgImage: '/images/card-assets/kho-pang-bg.png',
+    logo: '/images/card-assets/kho-pang-logo.svg',
     heading: 'Kho Pha Ngan',
     subheading: 'Ko Pha Ngan is a Thai island famous for its legendary Full Moon Parties and lush jungle landscapes.',
     href: '',
@@ -229,7 +229,7 @@ const cards = [
     categories: [
       { class: 'film', label: 'Films' },
     ],
-    bgImage: '/src/assets/images/card-assets/dead-man-bg.png',
+    bgImage: '/images/card-assets/dead-man-bg.png',
     logo: '',
     heading: 'Dead Men Walking',
     subheading: 'Dead Man Walking is a 1995 American crime drama film starring Susan Sarandon and Sean Penn.',
@@ -240,7 +240,7 @@ const cards = [
     categories: [
       { class: 'film', label: 'Films' },
     ],
-    bgImage: '/src/assets/images/card-assets/thebay-bg.png',
+    bgImage: '/images/card-assets/thebay-bg.png',
     logo: '',
     heading: 'The Bay',
     subheading: 'The Bay is a 2012 American mockumentary horror film directed by Barry Levinson and written by Michael Wallach.',
