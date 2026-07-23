@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite';
-import { resolve, dirname } from 'path';
+import { resolve, dirname, relative, sep } from 'path';
 import { fileURLToPath } from 'url';
 import { readdirSync } from 'fs';
 
@@ -13,15 +13,15 @@ function findHtmlFiles(dir, base = __dirname) {
     const fullPath = resolve(dir, entry.name);
 
     if (entry.isDirectory()) {
-      // skip build/dependency folders
-      if (['node_modules', 'dist', '.git'].includes(entry.name)) continue;
+      // skip build/dependency/public folders
+      if (['node_modules', 'dist', '.git', 'public'].includes(entry.name)) continue;
       files = { ...files, ...findHtmlFiles(fullPath, base) };
     } else if (entry.name.endsWith('.html')) {
-      const relativePath = fullPath.replace(base + '/', '');
+      const relativePath = relative(base, fullPath).split(sep).join('/');
       const name = relativePath
         .replace(/\.html$/, '')
-        .replace(/\/index$/, '') // about-us/index -> about-us
-        .replace(/\//g, '-') || 'main'; // root index.html -> main
+        .replace(/\/index$/, '') 
+        .replace(/\//g, '-') || 'main'; 
 
       files[name] = fullPath;
     }
