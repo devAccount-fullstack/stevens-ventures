@@ -6,8 +6,8 @@ export function initCounters() {
 
   let hasAnimated = false;
 
-  const duration = 3500; // total animation time (ms)
-  const frameRate = 40; // ms between updates
+  const duration = 3500; 
+  const frameRate = 40; 
   const steps = duration / frameRate;
 
   const easeInOutSine = (t) => -(Math.cos(Math.PI * t) - 1) / 2;
