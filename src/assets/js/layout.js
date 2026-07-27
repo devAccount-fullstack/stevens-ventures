@@ -1,14 +1,15 @@
-export async function loadLayout() {
-    const header = document.querySelector("#site-header");
-    const footer = document.querySelector("#site-footer");
-
-    if (header) {
-        const res = await fetch("/partials/header.html");
-        header.innerHTML = await res.text();
+async function loadHTML(id, file) {
+  const el = document.getElementById(id);
+  if (el) {
+    try {
+      const res = await fetch(file);
+      if (!res.ok) throw new Error(`HTTP error ${res.status}`);
+      el.innerHTML = await res.text();
+    } catch (err) {
+      console.error(`Could not load ${file}:`, err);
     }
-
-    if (footer) {
-        const res = await fetch("/partials/footer.html");
-        footer.innerHTML = await res.text();
-    }
+  }
 }
+
+loadHTML('header', '/partials/header.html');
+loadHTML('footer', '/partials/footer.html');
