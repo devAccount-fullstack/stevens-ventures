@@ -8,42 +8,57 @@ import { renderContentCards } from "./components/contentCards";
 import { initCounters } from './components/counters.js';
 import { renderOperateSuccessfully } from './components/operatesuccessfully.js';
 import { renderCardSlider } from './components/cardSlider.js';
-import './assets/js/script.js';
 
 // Import data
 import { heroSections } from './data/heroData.js';
+import { careersData } from './data/careersData.js';
 import { resourcesData } from './data/resourcesData.js';
 import { categories, cards } from './data/companiesData.js';
 import { operateData } from './data/operateData.js';
 
-function renderHeroIfExists(selector, data) {
+// Single guarded helper for EVERY DOM write in this file.
+// If the target element doesn't exist on the current page, it just skips —
+// it can never throw "Cannot set properties of null", and it can never
+// block the rest of the script from running.
+function renderIfExists(selector, renderFn, ...args) {
   const element = document.querySelector(selector);
-  if (!element) return;
-  element.innerHTML = renderHero(data);
+  if (!element) {
+    return null;
+  }
+  element.innerHTML = renderFn(...args);
+  return element;
 }
 
-// Render careers
-document.getElementById('careers').innerHTML = renderCardSlider();
-
 // Render hero sections
-renderHeroIfExists('#hero-section', heroSections.hero1);
-renderHeroIfExists('#hero-section-2', heroSections.hero2);
-renderHeroIfExists('#hero-section-3', heroSections.hero3);
-renderHeroIfExists('#hero-section-4', heroSections.hero4);
-renderHeroIfExists('#hero-section-about', heroSections.heroAbout);
+// NOTE: renderIfExists expects (selector, renderFn, ...args) — the render
+// FUNCTION has to be passed explicitly, not just the data. Passing the data
+// object where renderFn belongs makes it try to call the object as a
+// function, which throws and (same as before) blocks every render call
+// after it in this file.
+renderIfExists('#hero-section', renderHero, heroSections.hero1);
+renderIfExists('#hero-section-2', renderHero, heroSections.hero2);
+renderIfExists('#hero-section-3', renderHero, heroSections.hero3);
+renderIfExists('#hero-section-4', renderHero, heroSections.hero4);
+renderIfExists('#hero-section-about', renderHero, heroSections.heroAbout);
 
-// Render resources
-document.querySelector("#resources").innerHTML = renderContentCards(resourcesData);
+// ---- Careers ----
+renderIfExists('#careers', renderCardSlider, careersData);
 
-// Render companies
-document.querySelector('#companies-cards').innerHTML = renderCompanies({ categories, cards });
-setupCardFilter({ perBatch: 6 });
+// ---- Resources ----
+renderIfExists('#resources', renderContentCards, resourcesData);
 
-// Render operate section
-document.querySelector('#operate-successfully-placeholder').innerHTML = renderOperateSuccessfully(operateData);
+// ---- Companies ----
+const companiesEl = renderIfExists('#companies-cards', renderCompanies, { categories, cards });
+if (companiesEl) {
+  setupCardFilter({ perBatch: 6 });
+}
+
+// ---- Operate section ----
+renderIfExists('#operate-successfully-placeholder', renderOperateSuccessfully, operateData);
+
 initCounters();
 
-// Init scroll effects
+// ---- Scroll effects (header hide/show + parallax) ----
 function initScrollEffects() {
   const header = document.getElementById('header');
   const windowHeight = window.innerHeight;
@@ -90,3 +105,6 @@ function initScrollEffects() {
 }
 
 initScrollEffects();
+
+
+import './assets/js/script.js';

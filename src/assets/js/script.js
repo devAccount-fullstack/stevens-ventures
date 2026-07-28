@@ -1,177 +1,190 @@
-// src/assets/js/script.js
+if (typeof $ !== 'undefined') {
+  $(document).ready(function () {
+    // CARDS FILTER
+    let activeCat = "all";
+    let cardsPerBatch = 6;
+    let visibleCount = 0;
 
-$(document).ready(function () {
-  // CARDS FILTER
-  let activeCat = "all";
-  let cardsPerBatch = 6;
-  let visibleCount = 0;
-  
-  function updateSeeMoreButton(filteredCards) {
-    if (visibleCount >= filteredCards.length) {
-      $("#see-more").hide();
-    } else {
-      $("#see-more").show();
-    }
-  }
-  
-  function showNextBatch(filteredCards) {
-    const toShow = filteredCards.slice(visibleCount, visibleCount + cardsPerBatch);
-    toShow.show();
-    visibleCount += toShow.length;
-    updateSeeMoreButton(filteredCards);
-  }
-  
-  function filterCards(categoryClass) {
-    let allCards = $("#cards .card");
-    let filteredCards = [];
-  
-    if (categoryClass === "all") {
-      allCards.hide();
-      filteredCards = allCards;
-    } else {
-      allCards.hide();
-      filteredCards = allCards.filter("." + categoryClass);
-    }
-  
-    visibleCount = 0;
-    showNextBatch(filteredCards);
-    activeCat = categoryClass;
-  }
-  
-  // Category button click handlers - NOW ONLY TARGETING .cat WITHIN #categories
-  $("#categories .cat").click(function () {
-    const categoryMap = {
-      "cat-all": "all",
-      "cat-tech": "card-tech",
-      "cat-auto": "card-auto",
-      "cat-inv": "card-inv",
-      "cat-rent": "card-rent",
-      "cat-sta": "card-sta",
-      "cat-film": "card-film",
-    };
-  
-    const classList = $(this).attr("class").split(" ");
-    const matchedClass = classList.find(cls => categoryMap[cls]);
-    const selectedCategory = categoryMap[matchedClass];
-  
-    $("#categories .cat").removeClass("active");
-    $(this).addClass("active");
-  
-    filterCards(selectedCategory);
-  });
-  // CARDS FILTER
-  
-  // CARDS SEE MORE
-  $("#see-more").click(function () {
-    const currentFiltered = activeCat === "all"
-      ? $("#cards .card")
-      : $("#cards .card." + activeCat);
-
-    showNextBatch(currentFiltered);
-  });
-
-  // Initialize cards filter
-  $("#categories .cat-all").addClass("active");
-  filterCards("all");
-  // CARDS SEE MORE
-
-  // JOB FILTER - NOW USING .job-cat INSTEAD OF .cat
-  const swiper = new Swiper(".swiper-container", {
-    slidesPerView: 2,
-    slidesPerColumn: 2,
-    centeredSlides: true,
-    spaceBetween: 30,
-    loop: true,
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-    breakpoints: {
-      992: {
-        slidesPerView: 2.6,
-        pagination: {
-          el: "",
-        },
-      },
-      767: {
-        slidesPerView: 1.2,
-        pagination: {
-          el: ".swiper-pagination",
-        },
-      },
-      320: {
-        slidesPerView: 1.1,
-        pagination: {
-          el: ".swiper-pagination",
-        },
-      },
-    },
-  });
-  
-  // JOB Category Filter
-  let activeJobCat = "";
-
-  function setActiveJobButton(selector) {
-    $(".job-cat").removeClass("active");
-    $(selector).addClass("active");
-  }
-  
-  function filterJobGroup(group, buttonSelector) {
-    if (activeJobCat !== group) {
-      $(".swiper-slide.job").hide();
-      $(".swiper-slide.job." + group).show();
-      swiper.update();
-      activeJobCat = group;
-      setActiveJobButton(buttonSelector);
-    }
-  }
-  
-  $(".job-cat-all").click(function () {
-    $(".swiper-slide.job").show();
-    swiper.update();
-    activeJobCat = "all";
-    setActiveJobButton(".job-cat-all");
-  });
-  $(".job-cat-mech").click(function () {
-    filterJobGroup("job-mech", ".job-cat-mech");
-  });
-  $(".job-cat-sales").click(function () {
-    filterJobGroup("job-sales", ".job-cat-sales");
-  });
-  $(".job-cat-accnt").click(function () {
-    filterJobGroup("job-accnt", ".job-cat-accnt");
-  });
-  $(".job-cat-marketers").click(function () {
-    filterJobGroup("job-marketers", ".job-cat-marketers");
-  });
-  
-  // Set default active state
-  setActiveJobButton(".job-cat-all");
-  // JOB FILTER
-
-  // Detailed Page Sidebar Display Title when scrolling - FIXED with null check
-  const $title = $('.js-inner-list .title');
-  const $contentWrapper = $('.js-inner-content-wrapper');
-  
-  // Only run this if the elements exist on the page
-  if ($title.length && $contentWrapper.length) {
-    const contentOffset = $contentWrapper.offset().top;
-
-    $(window).on('scroll', function () {
-      if ($(window).scrollTop() > contentOffset - 100) {
-        $title.addClass('visible');
+    function updateSeeMoreButton(filteredCards) {
+      if (visibleCount >= filteredCards.length) {
+        $("#see-more").hide();
       } else {
-        $title.removeClass('visible');
+        $("#see-more").show();
       }
-    });
-  }
+    }
 
-  // Detailed Page - Update the active class when the link is click
-  $('.js-link .inner-link').on('click', function () {
-    $('.js-link .inner-item').removeClass('active');
-    $(this).closest('li').addClass('active');
+    function showNextBatch(filteredCards) {
+      const toShow = filteredCards.slice(visibleCount, visibleCount + cardsPerBatch);
+      toShow.show();
+      visibleCount += toShow.length;
+      updateSeeMoreButton(filteredCards);
+    }
+
+    function filterCards(categoryClass) {
+      let allCards = $("#cards .card");
+      let filteredCards = [];
+
+      if (categoryClass === "all") {
+        allCards.hide();
+        filteredCards = allCards;
+      } else {
+        allCards.hide();
+        filteredCards = allCards.filter("." + categoryClass);
+      }
+
+      visibleCount = 0;
+      showNextBatch(filteredCards);
+      activeCat = categoryClass;
+    }
+
+    // Category button click handlers - only wired up if #categories exists
+    if ($("#categories").length) {
+      $("#categories .cat").click(function () {
+        const categoryMap = {
+          "cat-all": "all",
+          "cat-tech": "card-tech",
+          "cat-auto": "card-auto",
+          "cat-inv": "card-inv",
+          "cat-rent": "card-rent",
+          "cat-sta": "card-sta",
+          "cat-film": "card-film",
+        };
+
+        const classList = $(this).attr("class").split(" ");
+        const matchedClass = classList.find(cls => categoryMap[cls]);
+        const selectedCategory = categoryMap[matchedClass];
+
+        $("#categories .cat").removeClass("active");
+        $(this).addClass("active");
+
+        filterCards(selectedCategory);
+      });
+
+      // Initialize cards filter
+      $("#categories .cat-all").addClass("active");
+    }
+
+    if ($("#cards").length) {
+      filterCards("all");
+    }
+    // CARDS FILTER
+
+    // CARDS SEE MORE
+    $("#see-more").click(function () {
+      const currentFiltered = activeCat === "all"
+        ? $("#cards .card")
+        : $("#cards .card." + activeCat);
+
+      showNextBatch(currentFiltered);
+    });
+    // CARDS SEE MORE
+
+    // JOB FILTER - only if the swiper container actually exists on this page
+    let swiper = null;
+    if ($(".swiper-container").length) {
+      swiper = new Swiper(".swiper-container", {
+        slidesPerView: 2,
+        slidesPerColumn: 2,
+        centeredSlides: true,
+        spaceBetween: 30,
+        loop: true,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        breakpoints: {
+          992: {
+            slidesPerView: 2.6,
+            pagination: {
+              el: "",
+            },
+          },
+          767: {
+            slidesPerView: 1.2,
+            pagination: {
+              el: ".swiper-pagination",
+            },
+          },
+          320: {
+            slidesPerView: 1.1,
+            pagination: {
+              el: ".swiper-pagination",
+            },
+          },
+        },
+      });
+    }
+
+    // JOB Category Filter
+    let activeJobCat = "";
+
+    function setActiveJobButton(selector) {
+      $(".job-cat").removeClass("active");
+      $(selector).addClass("active");
+    }
+
+    function filterJobGroup(group, buttonSelector) {
+      if (!swiper) return;
+      if (activeJobCat !== group) {
+        $(".swiper-slide.job").hide();
+        $(".swiper-slide.job." + group).show();
+        swiper.update();
+        activeJobCat = group;
+        setActiveJobButton(buttonSelector);
+      }
+    }
+
+    $(".job-cat-all").click(function () {
+      if (!swiper) return;
+      $(".swiper-slide.job").show();
+      swiper.update();
+      activeJobCat = "all";
+      setActiveJobButton(".job-cat-all");
+    });
+    $(".job-cat-mech").click(function () {
+      filterJobGroup("job-mech", ".job-cat-mech");
+    });
+    $(".job-cat-sales").click(function () {
+      filterJobGroup("job-sales", ".job-cat-sales");
+    });
+    $(".job-cat-accnt").click(function () {
+      filterJobGroup("job-accnt", ".job-cat-accnt");
+    });
+    $(".job-cat-marketers").click(function () {
+      filterJobGroup("job-marketers", ".job-cat-marketers");
+    });
+
+    // Set default active state
+    if (swiper) {
+      setActiveJobButton(".job-cat-all");
+    }
+    // JOB FILTER
+
+    // Detailed Page Sidebar Display Title when scrolling
+    const $title = $('.js-inner-list .title');
+    const $contentWrapper = $('.js-inner-content-wrapper');
+
+    if ($title.length && $contentWrapper.length) {
+      const contentOffset = $contentWrapper.offset().top;
+
+      $(window).on('scroll', function () {
+        if ($(window).scrollTop() > contentOffset - 100) {
+          $title.addClass('visible');
+        } else {
+          $title.removeClass('visible');
+        }
+      });
+    }
+
+    // Detailed Page - Update the active class when the link is click
+    $('.js-link .inner-link').on('click', function () {
+      $('.js-link .inner-item').removeClass('active');
+      $(this).closest('li').addClass('active');
+    });
   });
-});
+} else {
+  console.warn('script.js: jQuery ($) was not available when this module ran — jQuery-dependent features (filters, job swiper) were skipped.');
+}
 
 // DOM CONTENT LOADED - For Article Swiper and other features
 document.addEventListener("DOMContentLoaded", function () {
@@ -182,7 +195,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let menuOpen = false;
 
-  if (menuToggle) {
+  if (menuToggle && typeof $ !== 'undefined') {
     $(menuToggle).click(function () {
       menuOpen = !menuOpen;
       main.classList.toggle('blur', menuOpen);
@@ -191,13 +204,13 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   // HEADER DROPDOWN ON MOBILE
 
-  // Article Swiper - FIXED with better configuration
+  // Article Swiper
   const articleContainer = document.querySelector(".swiper-article-container");
   const slides = articleContainer ? articleContainer.querySelectorAll('.swiper-slide') : [];
-  
-  if (slides.length > 0) {
+
+  if (slides.length > 0 && typeof Swiper !== 'undefined') {
     const hasMoreThan3Slides = slides.length > 3;
-    
+
     const swiperArticle = new Swiper(".swiper-article-container", {
       slidesPerView: 1.2,
       spaceBetween: 20,
@@ -223,8 +236,6 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         992: {
           slidesPerView: 3,
-    
-      
           navigation: hasMoreThan3Slides ? {
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev",
@@ -247,32 +258,19 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
   truncateText(".article-description", 104);
-
-  function truncateTitle(selector, maxLength) {
-    document.querySelectorAll(selector).forEach(el => {
-      const text = el.textContent.trim();
-
-      if (text.length > maxLength) {
-        let truncated = text.substring(0, maxLength);
-        truncated = truncated.substring(0, truncated.lastIndexOf(" ")) + "...";
-        el.textContent = truncated;
-      }
-    });
-  }
-  truncateTitle(".article-title", 55);
+  truncateText(".article-title", 55);
 });
 
-// SCROLL EVENTS - Header hide/show and Parallax - FIXED to prevent multiple listeners
+// SCROLL EVENTS - Header hide/show and Parallax
 (function() {
   let lastScrollY = window.scrollY;
   const header = document.getElementById("header");
-  
-  // Remove any existing scroll listeners to prevent duplicates
+
   window.removeEventListener('scroll', window._scrollHandler);
-  
+
   window._scrollHandler = function() {
     const currentScrollY = window.scrollY;
-  
+
     if (header) {
       if (currentScrollY > lastScrollY) {
         header.style.transform = "translateY(-100px)";
@@ -286,9 +284,9 @@ document.addEventListener("DOMContentLoaded", function () {
         header.classList.remove("scrolled");
       }
     }
-  
+
     lastScrollY = currentScrollY;
-    
+
     // Parallax effects
     const windowHeight = window.innerHeight;
     const maxOffset = 220;
@@ -318,7 +316,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   };
-  
+
   window.addEventListener('scroll', window._scrollHandler);
 })();
 
@@ -327,8 +325,8 @@ const counters = document.querySelectorAll(".counter");
 const countersSection = document.querySelector(".map-block-counters");
 let hasAnimated = false;
 
-const duration = 3500; 
-const frameRate = 40; 
+const duration = 3500;
+const frameRate = 40;
 const steps = duration / frameRate;
 
 const easeInOutSine = (t) => {
