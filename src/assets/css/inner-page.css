@@ -9,9 +9,7 @@ section {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  padding-left: 5rem;
-  padding-right: 5rem;
-  padding-top: 7.7rem;
+  gap: 30px;
 }
 
 .no-spacing .accent {
@@ -54,9 +52,6 @@ h2 .accent {
   position: relative;
 }
 
-.inner-list {
-  width: 301px;
-}
 
 .inner-list-sticky {
   position: sticky;
@@ -132,7 +127,7 @@ h3 .accent {
 }
 
 .inner-content-wrapper {
-  width: 885px;
+  width: 60%;
   max-width: 100%;
   padding-left: 2.5rem;
   overflow: hidden;
@@ -231,6 +226,14 @@ h3 .accent {
   opacity: .7;
 }
 
+.about-us .inner {
+  padding: 120px 48px;
+}
+
+.about-us .inner-list {
+  width: 30%;
+}
+
 @media screen and (min-width: 1440px) {
   .content-wrapper {
     width: 100%;
@@ -239,17 +242,19 @@ h3 .accent {
   }
 }
 
-@media screen and (max-width: 992px) {
-  .inner .content-wrapper {
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-top: 4.7rem;
+@media screen and (max-width: 1024px) {
+  .content-wrapper {
+    flex-direction: row !important;
+    flex-wrap: wrap;
   }
+}
+
+@media screen and (max-width: 992px) {
   
   .hero .text-button .button-group-wrapper {
     display: flex;
     flex-direction: row;
-    gap: 7px;
+    gap: 20px;
   }
 
   .inner-content-wrapper__image img:first-child {
@@ -259,15 +264,16 @@ h3 .accent {
   .inner-card-details {
     padding: 5px 20px 20px;
   }
+
+  .inner-content-wrapper,
+  .about-us .inner-list {
+    width: 100%;
+    padding-left: 0;
+  }
 }
 
+
 @media screen and (max-width: 767px) {
-  .inner .content-wrapper {
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 3rem;
-    width: 100%;
-  }
 
   .inner .content-wrapper {
     display: block;
@@ -277,7 +283,7 @@ h3 .accent {
     position: relative;
     padding-left: 15px;
     padding-right: 15px;
-    width: auto;
+    width: 30%;
   }
 
   .inner-list .title {
@@ -326,3 +332,5 @@ h3 .accent {
     object-fit: contain;
   }
 }
+
+

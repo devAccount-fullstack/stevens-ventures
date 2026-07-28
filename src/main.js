@@ -9,17 +9,13 @@ import { initCounters } from './components/counters.js';
 import { renderOperateSuccessfully } from './components/operatesuccessfully.js';
 import { renderCardSlider } from './components/cardSlider.js';
 
-// Import data
 import { heroSections } from './data/heroData.js';
 import { careersData } from './data/careersData.js';
 import { resourcesData } from './data/resourcesData.js';
 import { categories, cards } from './data/companiesData.js';
 import { operateData } from './data/operateData.js';
 
-// Single guarded helper for EVERY DOM write in this file.
-// If the target element doesn't exist on the current page, it just skips —
-// it can never throw "Cannot set properties of null", and it can never
-// block the rest of the script from running.
+
 function renderIfExists(selector, renderFn, ...args) {
   const element = document.querySelector(selector);
   if (!element) {
@@ -29,17 +25,13 @@ function renderIfExists(selector, renderFn, ...args) {
   return element;
 }
 
-// Render hero sections
-// NOTE: renderIfExists expects (selector, renderFn, ...args) — the render
-// FUNCTION has to be passed explicitly, not just the data. Passing the data
-// object where renderFn belongs makes it try to call the object as a
-// function, which throws and (same as before) blocks every render call
-// after it in this file.
+
 renderIfExists('#hero-section', renderHero, heroSections.hero1);
 renderIfExists('#hero-section-2', renderHero, heroSections.hero2);
 renderIfExists('#hero-section-3', renderHero, heroSections.hero3);
 renderIfExists('#hero-section-4', renderHero, heroSections.hero4);
 renderIfExists('#hero-section-about', renderHero, heroSections.heroAbout);
+renderIfExists('#hero-contact', renderHero, heroSections.heroContact);
 
 // ---- Careers ----
 renderIfExists('#careers', renderCardSlider, careersData);
