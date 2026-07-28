@@ -45,4 +45,11 @@ export const heroSections = {
     text: "",
     buttons: [],
   },
+  heroContact: {
+    bgImage: '/images/about-us-hero.jpg',
+    headingLine1: 'Contact',
+    headingAccent: 'Us',
+    text: "",
+    buttons: [],
+  },
 };
