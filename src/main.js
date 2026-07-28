@@ -11,82 +11,70 @@ import { renderCardSlider } from './components/cardSlider.js';
 import './assets/js/script.js';
 
 // Import data
-import { heroSections } from './data/heroData.js';
+import { careersData } from './data/careersData.js';
 import { resourcesData } from './data/resourcesData.js';
 import { categories, cards } from './data/companiesData.js';
 import { operateData } from './data/operateData.js';
 
 function renderHeroIfExists(selector, data) {
   const element = document.querySelector(selector);
+
   if (!element) return;
+
   element.innerHTML = renderHero(data);
 }
 
-// Render careers
-document.getElementById('careers').innerHTML = renderCardSlider();
+renderHeroIfExists('#hero-section', {
+   bgImage: '/images/hero-section.webp',
+    headingLine1: 'Investing in Tomorrow.',
+    headingAccent: 'Today.',
+    text: 'Our fund focus on new, innovative models in the consumer internet and business services.',
+    buttons: [
+      { label: 'Apply', href: '/apply', style: 'gray', icon: '<img src="/images/curve-arrow.svg" alt="">' },
+      { label: 'Invest', href: '/invest', style: 'accent', icon: '<img src="/images/daf.svg" alt="">' },
+    ],
+});
 
-// Render hero sections
-renderHeroIfExists('#hero-section', heroSections.hero1);
-renderHeroIfExists('#hero-section-2', heroSections.hero2);
-renderHeroIfExists('#hero-section-3', heroSections.hero3);
-renderHeroIfExists('#hero-section-4', heroSections.hero4);
-renderHeroIfExists('#hero-section-about', heroSections.heroAbout);
+renderHeroIfExists('#hero-section-2', {
+  bgImage: '/images/automotive-retail.webp',
+    headingLine1: 'We Develop',
+    headingAccent: 'Automotive Retail.',
+    text: 'Our fund focus on new, innovative models in the consumer internet and business services.',
+    buttons: [
+      { label: 'Go on Website', href: '/', style: 'gray', icon: '<img src="/images/arrow-circle.svg" alt="">' },
+    ],
+});
 
-// Render resources
+renderHeroIfExists('#hero-section-3', {
+   bgImage: '/images/philantrophic-foundation.webp',
+  headingLine1: 'Stevens Philanthropic',
+  headingAccent: 'Foundation',
+  text: "The Stevens Foundation allows the pair's diverse philanthropic and charitable interests to converge under one umbrella.",
+  buttons: [
+    { label: 'Go on Website', href: '/', style: 'gray', icon: '<img src="/images/arrow-circle.svg" alt="">' },
+  ],
+});
+
+renderHeroIfExists('#hero-section-about', {
+  bgImage: '/images/about-us-hero.jpg',
+  headingLine1: 'About',
+  headingAccent: 'Us',
+  text: "",
+  buttons: [ ],
+});
+
+document.getElementById('careers').innerHTML = renderCardSlider(careersData);
+
+
 document.querySelector("#resources").innerHTML = renderContentCards(resourcesData);
 
-// Render companies
 document.querySelector('#companies-cards').innerHTML = renderCompanies({ categories, cards });
 setupCardFilter({ perBatch: 6 });
 
-// Render operate section
 document.querySelector('#operate-successfully-placeholder').innerHTML = renderOperateSuccessfully(operateData);
 initCounters();
 
-// Init scroll effects
-function initScrollEffects() {
-  const header = document.getElementById('header');
-  const windowHeight = window.innerHeight;
-  const maxOffset = 220;
-  let lastScrollY = window.scrollY;
 
-  window.addEventListener('scroll', () => {
-    const currentScrollY = window.scrollY;
-
-    if (header) {
-      if (currentScrollY > lastScrollY) {
-        header.style.transform = 'translateY(-100px)';
-      } else {
-        header.style.transform = 'translateY(0)';
-      }
-      header.classList.toggle('scrolled', currentScrollY > 0);
-    }
-
-    lastScrollY = currentScrollY;
-
-    // Hero parallax
-    const hero = document.querySelector('.hero.full-width-bg');
-    if (hero) {
-      const rect = hero.getBoundingClientRect();
-      if (rect.bottom > 0 && rect.top < windowHeight) {
-        const offset = Math.min(currentScrollY / 3, maxOffset);
-        hero.style.setProperty('--parallax-offset', `${offset}px`);
-      }
-    }
-
-    const sections = document.querySelectorAll('.full-width-bg:not(.hero)');
-    sections.forEach((section) => {
-      const rect = section.getBoundingClientRect();
-      if (rect.bottom > 0 && rect.top < windowHeight) {
-        const startValue = -284;
-        const endValue = 0;
-        const range = endValue - startValue;
-        const normalizedPosition = 1 - Math.max(0, Math.min(1, rect.top / windowHeight));
-        const offset = startValue + normalizedPosition * range;
-        section.style.setProperty('--parallax-offset', `${offset}px`);
-      }
-    });
-  });
-}
-
-initScrollEffects();
+import('./assets/js/script.js').catch((err) => {
+  console.error('script.js failed to load/run:', err);
+});
