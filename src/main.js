@@ -9,13 +9,13 @@ import { initCounters } from './components/counters.js';
 import { renderOperateSuccessfully } from './components/operatesuccessfully.js';
 import { renderCardSlider } from './components/cardSlider.js';
 import { renderCTA } from './components/cta.js';  
-
+import { renderBlogCards } from './components/blogCards.js'; 
 import { heroSections } from './data/heroData.js';
 import { careersData } from './data/careersData.js';
 import { resourcesData } from './data/resourcesData.js';
 import { categories, cards } from './data/companiesData.js';
 import { operateData } from './data/operateData.js';
-
+import { blogData } from './data/blogData.js';
 
 function renderIfExists(selector, renderFn, ...args) {
   const element = document.querySelector(selector);
@@ -33,13 +33,14 @@ renderIfExists('#hero-section-3', renderHero, heroSections.hero3);
 renderIfExists('#hero-section-4', renderHero, heroSections.hero4);
 renderIfExists('#hero-section-about', renderHero, heroSections.heroAbout);
 renderIfExists('#hero-contact', renderHero, heroSections.heroContact);
+renderIfExists('#hero-resources', renderHero, heroSections.heroResources);
 
 // ---- Careers ----
 renderIfExists('#careers', renderCardSlider, careersData);
 
 // ---- Resources ----
 renderIfExists('#resources', renderContentCards, resourcesData);
-
+renderIfExists('#resourcesCards', renderBlogCards, blogData);
 // ---- Companies ----
 const companiesEl = renderIfExists('#companies-cards', renderCompanies, { categories, cards });
 if (companiesEl) {

@@ -1,4 +1,5 @@
 export function renderHero({
+  className = '',
   bgImage = '',
   headingLine1 = 'Investing in Tomorrow.',
   headingAccent = 'Today.',
@@ -32,7 +33,7 @@ export function renderHero({
     .join('');
 
   return `
-    <section class="hero full-width-bg" style="--parallax-offset: 0px; background-image: url('${bgImage}');">
+    <section class="hero ${className ? ' ' + className : ''}" style="--parallax-offset: 0px; background-image: url('${bgImage}');">
       <div class="content-wrapper">
         <div class="text-wrapper">
           <div class="heading">

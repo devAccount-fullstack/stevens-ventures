@@ -259,6 +259,8 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   truncateText(".article-description", 104);
   truncateText(".article-title", 55);
+  truncateText(".blog-card-title", 50);
+  truncateText(".blog-card-excerpt", 100);
 });
 
 // SCROLL EVENTS - Header hide/show and Parallax

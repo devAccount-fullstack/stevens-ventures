@@ -3,6 +3,7 @@
 @import url(/src/assets/css/index.css);
 @import url(/src/assets/css/inner-page.css);
 @import url(/src/assets/css/hero.css);
+@import url(/src/assets/css/blog.css);
 
 :root {
   --primary-color: #fff;

@@ -2,6 +2,7 @@
 
 export const heroSections = {
   hero1: {
+    className: 'full-width-bg',
     bgImage: '/images/hero-section.webp',
     headingLine1: 'Investing in Tomorrow.',
     headingAccent: 'Today.',
@@ -12,6 +13,7 @@ export const heroSections = {
     ],
   },
   hero2: {
+    className: 'full-width-bg',
     bgImage: '/images/automotive-retail.webp',
     headingLine1: 'We Develop',
     headingAccent: 'Automotive Retail.',
@@ -21,6 +23,7 @@ export const heroSections = {
     ],
   },
   hero3: {
+    className: 'full-width-bg',
     bgImage: '/images/philantrophic-foundation.webp',
     headingLine1: 'Stevens Philanthropic',
     headingAccent: 'Foundation',
@@ -30,6 +33,7 @@ export const heroSections = {
     ],
   },
   hero4: {
+    className: 'full-width-bg',
     bgImage: '/images/more-about.webp',
     headingLine1: 'More About',
     headingAccent: 'Stevens Ventures Companies',
@@ -39,6 +43,7 @@ export const heroSections = {
     ],
   },
   heroAbout: {
+    className: 'half-width-bg',
     bgImage: '/images/about-us-hero.jpg',
     headingLine1: 'About',
     headingAccent: 'Us',
@@ -46,9 +51,18 @@ export const heroSections = {
     buttons: [],
   },
   heroContact: {
+    className: 'half-width-bg',
     bgImage: '/images/about-us-hero.jpg',
     headingLine1: 'Schedule a',
     headingAccent: 'Consultation',
+    text: "",
+    buttons: [],
+  },
+  heroResources: {
+    className: 'half-width-bg',
+    bgImage: '/images/about-us-hero.jpg',
+    headingLine1: 'Resources',
+    headingAccent: '',
     text: "",
     buttons: [],
   },
