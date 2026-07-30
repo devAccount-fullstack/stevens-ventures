@@ -14,7 +14,7 @@ export function renderCompanies({ categories = [], cards = [] } = {}) {
   return `
     <section class="global-companies">
       <div class="content-wrapper column">
-        <h2>
+        <h2 class="no-spacing">
           <span>Welcome to</span>
           Stevens Ventures Companies
         </h2>

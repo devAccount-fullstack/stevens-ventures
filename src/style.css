@@ -2,6 +2,7 @@
 @import url(/src/assets/css/footer.css);
 @import url(/src/assets/css/index.css);
 @import url(/src/assets/css/inner-page.css);
+@import url(/src/assets/css/hero.css);
 
 :root {
   --primary-color: #fff;
@@ -137,3 +138,99 @@ a.icon:hover svg path {
     padding: 15px 25px;
   }
 }
+
+
+
+  .cta-section {
+    background:#f5f5f5;
+    padding: 90px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    min-height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+  }
+  .cta-section .content-wrapper {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+ 
+  .cta-inner {
+    position: relative;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .cta-eyebrow {
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+ 
+  .cta-heading {
+    font-size: 56px;
+    line-height: 56px;
+    max-width: 700px;
+    color: #1A1D1E;
+    font-weight: 500;
+    padding-bottom: 28px;
+    margin-top: 10px;
+  }
+
+ 
+  .cta-subtext {
+    color: #000;
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto 36px;
+  }
+ 
+  .cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+ 
+
+   .cta-btn {
+     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+ 
+  .cta-btn.primary {
+    background: var(--secondary-color);
+    color: var(--text-color);
+  }
+ 
+  .cta-btn.primary:hover {
+    background: var(--primary-color);
+  }
+ 
+
+ 
+  @media (max-width: 600px) {
+    .cta-section {
+      padding: 60px 24px;
+    }
+    .cta-heading {
+      font-size: 30px;
+    }
+    .cta-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+    .cta-btn {
+      width: 100%;
+      max-width: 280px;
+      justify-content: center;
+    }
+  }

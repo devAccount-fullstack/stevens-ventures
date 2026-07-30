@@ -8,6 +8,7 @@ import { renderContentCards } from "./components/contentCards";
 import { initCounters } from './components/counters.js';
 import { renderOperateSuccessfully } from './components/operatesuccessfully.js';
 import { renderCardSlider } from './components/cardSlider.js';
+import { renderCTA } from './components/cta.js';  
 
 import { heroSections } from './data/heroData.js';
 import { careersData } from './data/careersData.js';
@@ -47,6 +48,7 @@ if (companiesEl) {
 
 // ---- Operate section ----
 renderIfExists('#operate-successfully-placeholder', renderOperateSuccessfully, operateData);
+renderIfExists('#cta', renderCTA);    
 
 initCounters();
 
