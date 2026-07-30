@@ -36,13 +36,15 @@ export function renderHero({
       <div class="content-wrapper">
         <div class="text-wrapper">
           <div class="heading">
-            <h1>${headingLine1} <span class="accent">${headingAccent}</span></h1>
+            <h1 class="no-spacing">${headingLine1} <span class="accent">${headingAccent}</span></h1>
           </div>
         </div>
-        <div class="text-button">
-          ${text ? `<p class="text">${text}</p>` : ''}
-          ${buttons.length ? `<div class="button-group-wrapper">${buttonsHtml}</div>` : ''}
-        </div>
+        ${text ? `
+          <div class="text-button">
+            <p class="text">${text}</p>
+            ${buttons.length ? `<div class="button-group-wrapper">${buttonsHtml}</div>` : ''}
+          </div>
+        ` : ''}
       </div>
     </section>
   `;

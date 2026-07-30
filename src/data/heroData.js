@@ -47,8 +47,8 @@ export const heroSections = {
   },
   heroContact: {
     bgImage: '/images/about-us-hero.jpg',
-    headingLine1: 'Contact',
-    headingAccent: 'Us',
+    headingLine1: 'Schedule a',
+    headingAccent: 'Consultation',
     text: "",
     buttons: [],
   },

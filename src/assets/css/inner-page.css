@@ -274,6 +274,11 @@ h3 .accent {
 
 
 @media screen and (max-width: 767px) {
+     #hero-section-about .hero.full-width-bg {
+            height: 94vh;
+        background-position: center;
+  }
+  
 
   .inner .content-wrapper {
     display: block;
@@ -328,9 +333,15 @@ h3 .accent {
 }
 
 @media screen and (max-width: 767px) and (min-width: 425px) {
-  .inner-content-wrapper__item img {
-    object-fit: contain;
+
+  #hero-section-about .hero {
+    padding: 0 30px;
   }
+
+ 
+    .about-us .inner {
+      padding: 80px 15px 0;
+    }
 }
 
 

@@ -13,7 +13,7 @@ export function renderContentCards({
           <div class="article">
             <img src="${card.image}" alt="${card.title}" class="article-img">
             <div class="article-content">
-              <p class="article-title">${card.title}</p>
+              <p class="article-title no-spacing">${card.title}</p>
               <div class="article-description">${card.description}</div>
               <a class="btn transparent border-less icon" href="${card.href ?? "#"}">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">

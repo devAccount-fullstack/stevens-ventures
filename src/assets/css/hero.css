@@ -1,0 +1,144 @@
+.hero {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 90vh;
+  background-color: black;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.hero-inner-details {
+  background-image: url('/assets/images/pd-hero-image.jpg');
+}
+
+.hero-about-us {
+  background-image: url('/assets/images/about-us-hero.jpg');
+}
+
+.hero .content-wrapper {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 89%;
+  padding-bottom: 39px;
+  margin: 0 auto;
+}
+
+.hero .text-wrapper {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+}
+
+.hero-icon {
+  position: relative;
+  top: -40px;
+  right: -13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  width: 56px;
+  height: 56px;
+  background-color: rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+}
+
+h1 {
+  margin: 0 0 40px 0;
+  color: #fff;
+  font-weight: 500;
+  font-size: 76px;
+  line-height: 82px;
+  letter-spacing: -5px;
+}
+
+h1 .accent {
+  display: block;
+  color: #FFF62D;
+}
+
+.hero .text-button {
+  display: flex;
+  flex-direction: column;
+  width: 46.5%;
+  padding-bottom: 41px;
+}
+
+.hero .text-button .text {
+  margin-bottom: 25px;
+  color: #fff;
+  font-size: 20px;
+  line-height: 32px;
+}
+
+.hero .text-button .button-group {
+  display: flex;
+  flex-direction: row;
+  gap: 7px;
+}
+
+.hero .text-button button,
+button.icon {
+  display: flex;
+  align-items: center;
+  padding: 14px 48px;
+}
+
+@media screen and (max-width: 1024px) {
+    h1 {
+        font-size: 64px;
+        line-height: 64px;
+         margin: 0 0 20px 0;
+    }
+
+    .hero {
+       height: 75vh;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    h1 {
+    margin: 0 0 20px 0;
+    color: #fff;
+    font-weight: 500;
+    font-size: 56px;
+    line-height: 60px;
+    letter-spacing: -5px;
+}
+
+    .hero .text-button {
+        display: flex;
+        flex-direction: column;
+        width: 70%;
+        padding-bottom: 41px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+  .hero {
+    height: 94vh;
+    background-position: center;
+  }
+
+  .hero .content-wrapper {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+  
+  h1 {
+    font-size: 36px;
+    line-height: 40px;
+    letter-spacing: -2px;
+    margin-bottom: 37px;
+  }
+
+  .hero-icon {
+    right: 0;
+    width: 44px;
+    height: 44px;
+    transform: rotate(-90deg);
+  }
+}
