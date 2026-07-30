@@ -25,6 +25,7 @@ export const resourcesData = {
       buttonText: "Explore",
       href: "#",
     },
+    
   ],
   button: {
     label: "View More",

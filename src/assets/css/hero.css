@@ -2,11 +2,20 @@
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  height: 90vh;
   background-color: black;
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+.full-width-bg {
+  height: 90vh;
+}
+
+
+.half-width-bg {
+  height: 75vh;
+}
+
 
 .hero-inner-details {
   background-image: url('/assets/images/pd-hero-image.jpg');
