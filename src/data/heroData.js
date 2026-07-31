@@ -61,8 +61,8 @@ export const heroSections = {
   heroResources: {
     className: 'half-width-bg',
     bgImage: '/images/about-us-hero.jpg',
-    headingLine1: 'Resources',
-    headingAccent: '',
+    headingLine1: '',
+    headingAccent: 'Resources',
     text: "",
     buttons: [],
   },
