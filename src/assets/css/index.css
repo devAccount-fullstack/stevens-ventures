@@ -121,6 +121,8 @@ h1 .accent {
 section .button-group-wrapper {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 8px;
 }
 
@@ -643,6 +645,7 @@ section h2 span {
 .careers .button-group-wrapper,
 .resources .button-group-wrapper {
   justify-content: center;
+
   padding-top: 60px;
 }
 

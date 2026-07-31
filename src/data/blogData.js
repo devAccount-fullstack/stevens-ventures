@@ -69,8 +69,4 @@ export const blogData = {
     },
     
   ],
-  button: {
-    label: "View More",
-    href: "#",
-  },
 };
