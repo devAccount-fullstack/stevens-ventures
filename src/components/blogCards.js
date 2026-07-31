@@ -1,4 +1,4 @@
-export function renderBlogCards({ cards = [], button = null } = {}) {
+export function renderBlogCards({ cards = [] } = {}) {
   const cardsHtml = cards
     .map(
       (card) => `
@@ -42,18 +42,6 @@ export function renderBlogCards({ cards = [], button = null } = {}) {
         <div class="blog-list-grid">
           ${cardsHtml}
         </div>
-
-        ${
-          button
-            ? `
-              <div class="blog-list-footer">
-                <a class="btn gray" href="${button.href || '#'}">
-                  ${button.label}
-                </a>
-              </div>
-            `
-            : ''
-        }
       </div>
     </section>
   `;
