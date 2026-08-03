@@ -4,6 +4,7 @@ export function renderHero({
   headingLine1 = 'Investing in Tomorrow.',
   headingAccent = 'Today.',
   text = '',
+  backLink = null,
   buttons = [
   {
     label: 'Apply',
@@ -33,8 +34,9 @@ export function renderHero({
     .join('');
 
   return `
-    <section class="hero ${className ? ' ' + className : ''}" style="--parallax-offset: 0px; background-image: url('${bgImage}');">
+    <section class="hero full-width-bg${className ? ' ' + className : ''}" style="--parallax-offset: 0px; background-image: url('${bgImage}');">
       <div class="content-wrapper">
+        ${backLink ? `<a class="hero-back-link" href="${backLink.href}">&larr; ${backLink.label}</a>` : ''}
         <div class="text-wrapper">
           <div class="heading">
             <h1 class="no-spacing">${headingLine1} <span class="accent">${headingAccent}</span></h1>
