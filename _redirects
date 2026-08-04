@@ -1,1 +1,10 @@
-/resources/:slug  /resources/single-post.html  200
+# Legacy Squarespace media URLs
+/media/amtrak-improvement-initiative   /resources/amtrak-improvement-initiative/   301
+/media/3tfaekmkf1gs4povj9z4wsa17li5jf   /resources/amtrak-improvement-initiative/   301
+/media/iyvei037hilb0y5xc95vlnaj21dctz   /resources/questions-to-ask-yourself-before-starting-a-business/   301
+/media/iihtwrh557omreufn6utosvpp6p4pc   /resources/david-olk-co-founder-of-shopkeep-joins-punchey-inc-board-of-directors/   301
+/media/w3erllvurppor3m4uxbwj9cpe8e1rq   /resources/what-the-future-of-ev-adoption-will-really-look-like/   301
+/media/vqmnax9mj91qokbcora1q3ejj0c7rw   /resources/how-businesses-are-using-ai-and-automation-to-personalize-the-customer-experience-and-boost-sales-in-2024/   301
+
+# Blog rewrite
+/resources/:slug   /resources/single-post.html   200

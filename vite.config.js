@@ -70,23 +70,38 @@ export default defineConfig({
       closeBundle() {
         const distRootDir = resolve(__dirname, "dist");
 
+        // _redirects
         copyFileSync(
           resolve(__dirname, "_redirects"),
           resolve(distRootDir, "_redirects")
         );
 
+        // robots.txt
+        const robots = resolve(__dirname, "robots.txt");
+        if (existsSync(robots)) {
+          copyFileSync(robots, resolve(distRootDir, "robots.txt"));
+        }
+
+        // sitemap.xml
+        const sitemap = resolve(__dirname, "sitemap.xml");
+        if (existsSync(sitemap)) {
+          copyFileSync(sitemap, resolve(distRootDir, "sitemap.xml"));
+        }
+
+        // style.css
         const srcStylePath = resolve(__dirname, "src/style.css");
         if (existsSync(srcStylePath)) {
           copyFileSync(srcStylePath, resolve(distRootDir, "style.css"));
         }
 
+        // content
         const srcContentDir = resolve(__dirname, "src/content");
         const distContentDir = resolve(distRootDir, "src/content");
 
         if (existsSync(srcContentDir)) {
           copyDirectory(srcContentDir, distContentDir);
         }
-      },
+      }
     },
     {
       name: "resources-post-rewrite",
