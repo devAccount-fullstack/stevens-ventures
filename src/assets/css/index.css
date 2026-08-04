@@ -121,7 +121,6 @@ h1 .accent {
 section .button-group-wrapper {
   display: flex;
   flex-direction: row;
-  justify-content: center;
   flex-wrap: wrap;
   gap: 8px;
 }
