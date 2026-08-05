@@ -17,12 +17,12 @@
 }
 
 
-.hero-inner-details {
-  background-image: url('/assets/images/pd-hero-image.jpg');
-}
+/* .hero-inner-details {
+  background-image: url('/images/pd-hero-image.jpg');
+} */
 
 .hero-about-us {
-  background-image: url('/assets/images/about-us-hero.jpg');
+  background-image: url('/images/about-us-hero.jpg');
 }
 
 .hero .content-wrapper {

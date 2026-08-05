@@ -8,8 +8,8 @@ export const heroSections = {
     headingAccent: 'Today.',
     text: 'Our fund focus on new, innovative models in the consumer internet and business services.',
     buttons: [
-      { label: 'Apply', href: '/apply', style: 'gray', icon: '<img src="/images/curve-arrow.svg" alt="">' },
-      { label: 'Invest', href: '/invest', style: 'accent', icon: '<img src="/images/daf.svg" alt="">' },
+      { label: 'Apply', href: '/contact-us/', style: 'gray', icon: '<img src="/images/curve-arrow.svg" alt="Curve arrow">' },
+      { label: 'Invest', href: '/contact-us/', style: 'accent', icon: '<img src="/images/daf.svg" alt="Arrow pointing right">' },
     ],
   },
   hero2: {
@@ -19,7 +19,7 @@ export const heroSections = {
     headingAccent: 'Automotive Retail.',
     text: 'Our fund focus on new, innovative models in the consumer internet and business services.',
     buttons: [
-      { label: 'Go on Website', href: '/', style: 'gray', icon: '<img src="/images/arrow-circle.svg" alt="">' },
+      { label: 'Go on Website', href: '/', style: 'gray', icon: '<img src="/images/arrow-circle.svg" alt="Arrow in a circle">' },
     ],
   },
   hero3: {
@@ -29,7 +29,7 @@ export const heroSections = {
     headingAccent: 'Foundation',
     text: "The Stevens Foundation allows the pair's diverse philanthropic and charitable interests to converge under one umbrella.",
     buttons: [
-      { label: 'Go on Website', href: '/', style: 'gray', icon: '<img src="/images/arrow-circle.svg" alt="">' },
+      { label: 'Go on Website', href: '/', style: 'gray', icon: '<img src="/images/arrow-circle.svg" alt="Arrow in a circle">' },
     ],
   },
   hero4: {
@@ -39,7 +39,7 @@ export const heroSections = {
     headingAccent: 'Stevens Ventures Companies',
     text: "We prefer investments that deal within our core area of expertise. More specifically, this includes online marketing services, financial services, consumer content and publishing, mobile applications, and SMB-focused SAAS models providing marketing, business operations, or technology capabilities.",
     buttons: [
-      { label: 'Read More', href: '/', style: 'gray', icon: '<img src="/images/double-arrow.svg" alt="">' },
+      { label: 'Read More', href: '/', style: 'gray', icon: '<img src="/images/double-arrow.svg" alt="Double arrow">' },
     ],
   },
   heroAbout: {

@@ -17,7 +17,9 @@ export function renderBlogPost(card) {
         <div class="blog-post-meta">
           <span>${card.author}</span>
           <span class="dot">&bull;</span>
-          <time datetime="${card.date || card.publishDate}">${card.date || card.publishDate}</time>
+          <time datetime="${card.date || card.publishDate}" title="${card.date || card.publishDate}">
+            ${card.date || card.publishDate}
+          </time>
         </div>
 
         <div class="blog-post-content">

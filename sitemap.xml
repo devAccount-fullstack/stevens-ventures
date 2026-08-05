@@ -21,16 +21,6 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.stevensventures.com/apply/</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.stevensventures.com/invest/</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.stevensventures.com/resources/amtrak-improvement-initiative/</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
