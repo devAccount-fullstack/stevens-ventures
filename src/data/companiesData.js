@@ -15,7 +15,7 @@ export const cards = [
     cardClasses: ['card-rent', 'card-sta'],
     categories: [
       { class: 'rent', label: 'Rental Properties' },
-      { class: 'sta', label: 'Short Term Accomodation' },
+      { class: 'sta', label: 'Short Term Accommodation' },
     ],
     bgImage: '/images/card-assets/miami-bg.png',
     logo: '/images/card-assets/miami-logo.svg',

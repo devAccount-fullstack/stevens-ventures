@@ -54,23 +54,23 @@
 } */
 
 .hero::before {
-  background-image: url('/src/assets/images/hero-section.webp');
+  background-image: url('/images/hero-section.webp');
 }
 
 .automotive-retail::before {
-  background-image: url('/src/assets/images/automotive-retail.webp');
+  background-image: url('/images/automotive-retail.webp');
 }
 
 /* .automotive-retail .scroll-effect-wrapper::before {
-  background-image: url('/src/assets/images/automotive-retail.webp');
+  background-image: url('/images/automotive-retail.webp');
 } */
 
 .philantrophic-foundation::before {
-  background-image: url('/src/assets/images/philantrophic-foundation.webp');
+  background-image: url('/images/philantrophic-foundation.webp');
 }
 
 .more-about::before {
-  background-image: url('/src/assets/images/more-about.webp');
+  background-image: url('/images/more-about.webp');
 }
 
 .full-width-bg .content-wrapper,
@@ -588,7 +588,7 @@ section h2 span {
 
 .swiper-button-prev,
 .swiper-button-next {
-  background-image: url('/src/assets/images/slide-navigation.svg')!important;
+  background-image: url('/images/slide-navigation.svg')!important;
   background-size: cover;
   height: 56px !important;
   width: 56px !important;

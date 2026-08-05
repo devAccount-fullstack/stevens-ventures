@@ -47,10 +47,10 @@ export function renderCardSlider() {
         <div class="swiper-wrapper">${jobSlides}</div>
         <div class="swiper-pagination"></div>
         <div class="swiper-button-next">
-          <img src="/images/slide-navigation.svg" alt="">
+          <img src="/images/slide-navigation.svg" alt="Navigation Next">
         </div>
         <div class="swiper-button-prev">
-          <img src="/images/slide-navigation.svg" alt="">
+          <img src="/images/slide-navigation.svg" alt="Navigation Previous">
         </div>
       </div>
       <div class="button-group-wrapper">

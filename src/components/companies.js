@@ -29,7 +29,7 @@ export function renderCompanies({ categories = [], cards = [] } = {}) {
 
         <div class="button-group-wrapper">
           <a id="see-more" class="btn icon transparent" style="display: none;">
-            <img src="/images/icon-down-gray.svg" alt="">
+            <img src="/images/icon-down-gray.svg" alt="Icon arrow down">
             See More
           </a>
         </div>
@@ -45,8 +45,8 @@ function renderCard(card) {
 
   return `
     <div class="card ${(card.cardClasses || []).join(' ')}">
-      <img src="${card.bgImage}" class="img-bg">
-      ${card.logo ? `<img class="logo ${card.logoClass || ''}" src="${card.logo}">` : ''}
+      <img src="${card.bgImage}" class="img-bg" alt="${card.heading || ''}">
+      ${card.logo ? `<img class="logo${card.logoClass || ''}" src="${card.logo}" alt="${card.heading || ''}">` : ''}
       <div class="card-content">
         <div class="top-content">
           ${categoryTags}
