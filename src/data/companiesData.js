@@ -32,7 +32,7 @@ export const cards = [
     logo: '/images/card-assets/yodle-logo.svg',
     heading: 'Yodle',
     subheading: 'Simply put, we create digital solutions that help businesses thrive. We build results-driven marketing solutions to grow your business.',
-    href: '',
+    href: 'https://nathanielstevens.com/yodle/',
   },
   {
     cardClasses: ['card-auto'],
@@ -44,7 +44,7 @@ export const cards = [
     logoClass: 'lincoln',
     heading: 'Lincoln of Milford',
     subheading: "When you're looking for exceptional new and pre-owned vehicles at the lowest prices around, Lincoln of Milford is the place to go. We have devoted ourselves to helping and serving our customers.",
-    href: '',
+    href: 'https://stevensauto.com/lincoln-of-milford',
   },
   {
     cardClasses: ['card-tech'],
@@ -55,7 +55,7 @@ export const cards = [
     logo: '/images/card-assets/tattoopro-logo.svg',
     heading: 'TattooPro',
     subheading: "When you're looking for exceptional new and pre-owned vehicles at the lowest prices around, Lincoln of Milford is the place to go. We have devoted ourselves to helping and serving our customers.",
-    href: '',
+    href: 'https://tattoopro.io/',
   },
   {
     cardClasses: ['card-auto'],
@@ -66,7 +66,7 @@ export const cards = [
     logo: '/images/card-assets/stevens-auto-group-logo.svg',
     heading: 'Stevens Auto Group',
     subheading: 'At Stevens Ford, we pride ourselves on offering an extensive inventory of Ford vehicles, from the rugged Ford F-150 to the versatile Ford Escape.',
-    href: '',
+    href: 'https://stevensauto.com/',
   },
   {
     cardClasses: ['card-tech'],
@@ -77,7 +77,7 @@ export const cards = [
     logo: '/images/card-assets/punchey-logo.svg',
     heading: 'Punchey, Inc',
     subheading: 'Everything owners & operators need to successfully manage and grow their business. We build industry-specific apps that are tailor-designed to help local service businesses succeed.',
-    href: '',
+    href: 'https://www.punchey.com/',
   },
   {
     cardClasses: ['card-2', 'card-tech'],
@@ -88,7 +88,7 @@ export const cards = [
     logo: '/images/card-assets/lvs-logo.svg',
     heading: 'LVS Digital',
     subheading: 'LVS Digital Marketing helps purpose driven female entrepreneurs avoid burnout, save time creating strategic content and generate more leads while setting their omni-channel marketing strategy on autopilot.',
-    href: '',
+    href: 'https://lvsdigital.com/',
   },
   {
     cardClasses: ['card-2', 'card-tech'],
@@ -99,7 +99,7 @@ export const cards = [
     logo: '/images/card-assets/detailpropos-logo.svg',
     heading: 'DetailPro',
     subheading: 'The Top-Rated System for Attracting, Servicing and Retaining Customers You Have Ambitions, We have the Formula Beautiful Site + Unbeatable Software + Loving Customer Service = Success.',
-    href: '',
+    href: 'https://detailpropos.com/',
   },
   {
     cardClasses: ['card-2', 'card-auto'],
@@ -110,7 +110,7 @@ export const cards = [
     logo: '/images/card-assets/stevens-collision-logo.svg',
     heading: 'Stevens Collision Center',
     subheading: 'We strive to be respectful of your time without any hassle or haggle and to deliver an upfront, comfortable purchase experience!',
-    href: '',
+    href: 'https://www.stevenscollisioncenter.com/',
   },
   {
     cardClasses: ['card-2', 'card-auto'],

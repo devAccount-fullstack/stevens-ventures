@@ -53,7 +53,7 @@ function renderCard(card) {
           <h3 class="heading">${card.heading}</h3>
           <p class="subheading">${card.subheading}</p>
         </div>
-        <a href="${card.href || ''}" class="details">Details</a>
+        ${card.href ? `<a href="${card.href}" class="details">Details</a>` : ''}
       </div>
     </div>
   `;

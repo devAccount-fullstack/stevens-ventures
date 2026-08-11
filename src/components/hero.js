@@ -23,15 +23,18 @@ export function renderHero({
 ],
 } = {}) {
   const buttonsHtml = buttons
+    .filter((btn) => btn.href) 
     .map(
       (btn) => `
-        <a class="btn ${btn.style || 'gray'} icon" href="${btn.href || '#'}">
+        <a class="btn ${btn.style || 'gray'} icon" href="${btn.href}" target="_blank" rel="noopener noreferrer">
           ${btn.icon || ''}
           ${btn.label}
         </a>
       `
     )
     .join('');
+
+  const visibleButtonsCount = buttons.filter((btn) => btn.href).length;
 
   return `
     <section class="hero full-width-bg${className ? ' ' + className : ''}" style="--parallax-offset: 0px; background-image: url('${bgImage}');">
@@ -45,7 +48,7 @@ export function renderHero({
         ${text ? `
           <div class="text-button">
             <p class="text">${text}</p>
-            ${buttons.length ? `<div class="button-group-wrapper">${buttonsHtml}</div>` : ''}
+            ${visibleButtonsCount ? `<div class="button-group-wrapper">${buttonsHtml}</div>` : ''}
           </div>
         ` : ''}
       </div>
