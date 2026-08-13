@@ -1,12 +1,10 @@
 // data/companiesData.js
-
 export const categories = [
   { label: 'All Companies', filterClass: 'cat-all' },
   { label: 'Technology&Marketing', filterClass: 'cat-tech', dataFilter: 'card-tech' },
   { label: 'Automotive Retail', filterClass: 'cat-auto', dataFilter: 'card-auto' },
   { label: 'Investors', filterClass: 'cat-inv', dataFilter: 'card-inv' },
-  { label: 'Rental Properties', filterClass: 'cat-rent', dataFilter: 'card-rent' },
-  { label: 'Short Term Accomodations', filterClass: 'cat-sta', dataFilter: 'card-sta' },
+  { label: 'Rental & Short Term Accommodation', filterClass: 'cat-rent', dataFilter: 'card-rent,card-sta' },
   { label: 'Film', filterClass: 'cat-film', dataFilter: 'card-film' },
 ];
 
@@ -41,7 +39,6 @@ export const cards = [
     ],
     bgImage: '/images/card-assets/lincoln-bg.png',
     logo: '/images/card-assets/lincoln-logo.svg',
-    logoClass: 'lincoln',
     heading: 'Lincoln of Milford',
     subheading: "When you're looking for exceptional new and pre-owned vehicles at the lowest prices around, Lincoln of Milford is the place to go. We have devoted ourselves to helping and serving our customers.",
     href: 'https://stevensauto.com/lincoln-of-milford',
@@ -121,7 +118,7 @@ export const cards = [
     logo: '/images/card-assets/milford-logo.svg',
     heading: 'Stevens Ford of Milford',
     subheading: 'At Stevens Ford Of Milford, we believe that buying a vehicle in Milford should be as straight forward as possible.',
-    href: '',
+    href: 'https://www.stevensfordmilford.com/',
   },
   {
     cardClasses: ['card-2', 'card-inv'],
@@ -132,7 +129,7 @@ export const cards = [
     logo: '/images/card-assets/ventures-logo.svg',
     heading: 'Stevens Ventures',
     subheading: 'At Stevens Ford Of Milford, we believe that buying a vehicle in Milford should be as straight forward as possible.',
-    href: '',
+    href: 'https://www.stevensventures.com/',
   },
   {
     cardClasses: ['card-2', 'card-rent'],
@@ -165,7 +162,7 @@ export const cards = [
     logo: '/images/card-assets/marthas-logo.svg',
     heading: 'Martha\'s Vineyard',
     subheading: 'Martha\'s Vineyard is a charming island off the coast of Massachusetts, known for its sandy beaches and quaint seaside towns.',
-    href: '',
+    href: 'https://www.mvy.com/',
   },
   {
     cardClasses: ['card-3', 'card-sta'],

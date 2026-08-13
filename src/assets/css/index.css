@@ -131,6 +131,7 @@ section .button-group-wrapper {
 
 .operate-successfully .button-group-wrapper {
   justify-content: center;
+  margin: 0 auto;
 }
 
 .full-width-bg .text-button button {

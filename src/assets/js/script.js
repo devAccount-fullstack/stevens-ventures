@@ -2,7 +2,7 @@ if (typeof $ !== 'undefined') {
   $(document).ready(function () {
     // CARDS FILTER
     let activeCat = "all";
-    let cardsPerBatch = 6;
+    let cardsPerBatch = Infinity;
     let visibleCount = 0;
 
     function updateSeeMoreButton(filteredCards) {
@@ -29,7 +29,9 @@ if (typeof $ !== 'undefined') {
         filteredCards = allCards;
       } else {
         allCards.hide();
-        filteredCards = allCards.filter("." + categoryClass);
+        // support comma-separated multi-class filters, e.g. "card-rent,card-sta"
+        const selector = categoryClass.split(",").map(c => "." + c.trim()).join(",");
+        filteredCards = allCards.filter(selector);
       }
 
       visibleCount = 0;
@@ -45,8 +47,7 @@ if (typeof $ !== 'undefined') {
           "cat-tech": "card-tech",
           "cat-auto": "card-auto",
           "cat-inv": "card-inv",
-          "cat-rent": "card-rent",
-          "cat-sta": "card-sta",
+          "cat-rent": "card-rent,card-sta",
           "cat-film": "card-film",
         };
 
