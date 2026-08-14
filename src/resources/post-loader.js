@@ -16,11 +16,37 @@ function splitTitle(title = '', wordCount = 3) {
   return { headingLine1, headingAccent };
 }
 
+function setArticleMeta({ title, slug, description }) {
+  const canonicalUrl = `https://stevensventures.com/resources/${slug}`;
+
+  document.title = `${title} | Stevens Ventures`;
+
+  let canonicalTag = document.querySelector('link[rel="canonical"]');
+  if (!canonicalTag) {
+    canonicalTag = document.createElement('link');
+    canonicalTag.setAttribute('rel', 'canonical');
+    document.head.appendChild(canonicalTag);
+  }
+  canonicalTag.setAttribute('href', canonicalUrl);
+
+  let descTag = document.querySelector('meta[name="description"]');
+  if (!descTag) {
+    descTag = document.createElement('meta');
+    descTag.setAttribute('name', 'description');
+    document.head.appendChild(descTag);
+  }
+  descTag.setAttribute('content', description || '');
+}
+
 const slug = getSlugFromURL();
 const card = blogData.cards.find((c) => (c.slug || slugify(c.title)) === slug);
 
 if (card) {
-  document.title = `${card.title} | Stevens Ventures`;
+  setArticleMeta({
+    title: card.title,
+    slug: card.slug || slug,
+    description: card.excerpt,
+  });
 
   const schema = document.createElement('script');
   schema.type = 'application/ld+json';

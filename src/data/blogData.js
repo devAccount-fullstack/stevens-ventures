@@ -120,7 +120,7 @@ export const blogData = {
         <p><strong>— Nate Stevens</strong></p>
       `,
       author: "Nathaniel Stevens",
-      date: "8/2/24",
+      date: "2024-08-15",
       buttonText: "Explore",
       href: "#",
     },
@@ -128,7 +128,7 @@ export const blogData = {
       image: "/images/article-img2.png",
       title: "Questions to Ask Yourself Before Starting a Business",
       excerpt: "Despite high property costs and borrowing rates, 2024 is still a promising year to start your own business. A recent survey showed millennials and “side hustlers” saw business ownership as the best way to build personal wealth in 2024. ",
-      fullCotent: 
+      fullContent: 
             `
             <p>
               <em>By Nathaniel Stevens, Founder of Punchey, Managing Director at Stevens Ventures, and Founder and Former CEO of Yodle</em>
@@ -187,7 +187,7 @@ export const blogData = {
             </p>
             `,
       author: "Nathaniel Stevens",
-      date: "7/29/24",
+      date: "2024-07-29",
       buttonText: "Explore",
       href: "#",
     },
@@ -195,7 +195,7 @@ export const blogData = {
       image: "/images/article-img3.png",
       title: "David Olk, Co-founder of ShopKeep, Joins Punchey Inc. Board of Directors ",
       excerpt: "Olk brings extensive experience in the POS industry and will serve as a key strategic advisor as Punchey continues to expand.",
-      fullCotent: 
+      fullContent: 
             `
             <p>
               <em>Olk brings extensive experience in the POS industry and will serve as a key strategic advisor as Punchey continues to expand.</em>
@@ -253,14 +253,14 @@ export const blogData = {
             <p><strong>SOURCE</strong> Punchey, Inc</p>
             `,
       author: "Nathaniel Stevens",
-      date: "4/29/24",
+      date: "2024-04-29",
       buttonText: "Explore",
       href: "#",
     },{
       image: "/images/article-img1.png",
       title: "What the Future of EV Adoption Will Really Look Like",
       excerpt: "A few years ago, electric vehicle (EV) adoption was the headline discussion of every dealership in town — investors listened, and EV vehicles were on a fast track to occupy every home in America.",
-      fullCotent: 
+      fullContent: 
             `
             <p>
               A few years ago, electric vehicle (EV) adoption was the headline discussion of every dealership in town — investors listened, and EV vehicles were on a fast track to occupy every home in America. Today, however, consumer adoption of EVs has not followed how we thought it would: Hertz recently sold a third of its U.S. fleet of EVs (20,000 cars) following their ambitious strategy to acquire 100,000 Teslas in 2021. Germany's electric-vehicle sales sank in December, Ford halted production of the F-150 Lightning, and GM cut near-term investment in EVs. But what happened? EV fervor was reaching record highs following mainstream exposure by Tesla and renewed calls for fossil fuel awareness during COVID-19.
@@ -317,7 +317,7 @@ export const blogData = {
             </p>
             `,
       author: "Nathaniel Stevens",
-      date: "3/22/24",
+      date: "2024-03-22",
       buttonText: "Explore",
       href: "#",
     },
@@ -325,7 +325,7 @@ export const blogData = {
       image: "/images/article-img2.png",
       title: "How Businesses Are Using AI and Automation to Personalize the Customer Experience and Boost Sales in 2024",
       excerpt: "Bladerunner, The Matrix, WALL-E, the Jetsons, and countless others prophesied an era when humans and artificial intelligence would cross paths. The day has finally come for avid moviegoers of the last thirty years: ",
-      fullCotent: 
+      fullContent: 
             `
             <p>
               Bladerunner, The Matrix, WALL-E, the Jetsons, and countless others prophesied an era when humans and artificial intelligence would cross paths. The day has finally come for avid moviegoers of the last thirty years: AI is at the forefront of our technological zeitgeist. While we might not use AI to vacuum the house or do the dishes, Artificial Intelligence fundamentally changes how we approach B2B and customer-facing interactions.
@@ -378,7 +378,7 @@ export const blogData = {
             </p>
             `,
       author: "Nathaniel Stevens",
-      date: "3/18/24",
+      date: "2024-03-18",
       buttonText: "Explore",
       href: "#",
     },
@@ -386,7 +386,7 @@ export const blogData = {
       image: "/images/article-img3.png",
       title: "The Outlook for Tech Startups in 2024",
       excerpt: "Over the past year, VCs have been forced to pull back with the rocky economy. However, ambitious entrepreneurs and startups still want to take a chance at changing the world.",
-      fullCotent: 
+      fullContent: 
             `
             <p>
               Over the past year, VCs have been forced to pull back with the rocky economy. However, ambitious entrepreneurs and startups still want to take a chance at changing the world. That leaves us with two pressing questions: how will the tech scene reset in 2024, and what industries and technologies show signs of life?
@@ -469,7 +469,7 @@ export const blogData = {
             </p>
             `,
       author: "Nathaniel Stevens",
-      date: "2/28/24",
+      date: "2024-02-28",
       buttonText: "Explore",
       href: "#",
     },
