@@ -1,4 +1,5 @@
 import { slugify } from '../utils/slugify.js';
+import { formatDisplayDate } from '../utils/formatDate.js';
 
 export function renderBlogCards({ cards = [] } = {}) {
   const cardsHtml = cards
@@ -17,7 +18,7 @@ export function renderBlogCards({ cards = [] } = {}) {
               <div class="blog-card-meta">
                 <span>${card.author}</span>
                 <span class="dot">&bull;</span>
-                <time datetime="${card.date}">${card.date}</time>
+                <time datetime="${card.date}">${formatDisplayDate(card.date)}</time>
               </div>
 
               <h3 class="blog-card-title">
