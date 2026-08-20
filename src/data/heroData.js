@@ -15,9 +15,9 @@ export const heroSections = {
   hero2: {
     className: 'full-width-bg',
     bgImage: '/images/automotive-retail.webp',
-    headingLine1: 'We Develop',
-    headingAccent: 'Automotive Retail.',
-    text: 'Our fund focus on new, innovative models in the consumer internet and business services.',
+    headingLine1: 'We Build',
+    headingAccent: 'The Future of Auto Retail.',
+    text: 'Empowering the future of mobility by developing next-generation automotive retail solutions and customer-first experiences.',
     buttons: [
       { label: 'Go on Website', href: 'https://stevensauto.com/', style: 'gray', icon: '<img src="/images/arrow-circle.svg" alt="Arrow in a circle">' },
     ],
