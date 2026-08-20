@@ -15,7 +15,7 @@ export const heroSections = {
   hero2: {
     className: 'full-width-bg',
     bgImage: '/images/automotive-retail.webp',
-    headingLine1: 'We Build',
+    headingLine1: 'We are Building',
     headingAccent: 'The Future of Auto Retail.',
     text: 'Empowering the future of mobility by developing next-generation automotive retail solutions and customer-first experiences.',
     buttons: [
