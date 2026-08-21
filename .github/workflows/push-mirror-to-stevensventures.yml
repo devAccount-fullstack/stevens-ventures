@@ -1,0 +1,57 @@
+name: "[Stevens Ventures] Mirror pushes to stevensventures org"
+# Added 2026-08-21 by Panos Stavrinides (github: panoscy, panos@punchey.com)
+# for the Stevens Ventures side, to keep github.com/stevensventures's copy
+# of this repo in sync so it can serve as our own deploy source.
+# Questions/issues: ping Panos, or just disable/delete this workflow.
+
+on:
+  push:
+    branches:
+      - '**'
+
+permissions:
+  contents: read
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout this repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Merge pushed branch into stevensventures
+        env:
+          DEST_REPO: stevensventures/stevens-ventures
+          DEST_TOKEN: ${{ secrets.STEVENSVENTURES_DEST_PAT }}
+          BRANCH: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+          git config --local --unset-all http.https://github.com/.extraheader || true
+          git config user.name "sync-bot"
+          git config user.email "actions@users.noreply.github.com"
+
+          if [ -z "${DEST_TOKEN:-}" ]; then
+            echo "::error::STEVENSVENTURES_DEST_PAT secret is not set on this repo — nothing to push with."
+            exit 1
+          fi
+
+          git checkout -q -B "$BRANCH" "${{ github.sha }}"
+
+          DEST_URL="https://x-access-token:${DEST_TOKEN}@github.com/${DEST_REPO}.git"
+          git remote add dest "$DEST_URL"
+          git fetch dest
+
+          if git show-ref --verify --quiet "refs/remotes/dest/$BRANCH"; then
+            git checkout -q -b dest-work "dest/$BRANCH"
+            if git merge --no-edit "$BRANCH"; then
+              git push dest "dest-work:refs/heads/$BRANCH"
+            else
+              git merge --abort
+              echo "::error::Branch '$BRANCH' has conflicting changes vs stevensventures — needs manual resolution, not pushed."
+              exit 1
+            fi
+          else
+            git push dest "$BRANCH:refs/heads/$BRANCH"
+          fi
