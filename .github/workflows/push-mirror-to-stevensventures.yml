@@ -15,6 +15,12 @@ permissions:
 jobs:
   mirror:
     runs-on: ubuntu-latest
+    # Safety guard: this workflow must only ever run from its intended source
+    # repos. If this file is ever merged/copied into a stevensventures repo
+    # (e.g. as a side effect of the sync), it must stay inert there — running
+    # it there would push to itself using a PAT, which (unlike the default
+    # GITHUB_TOKEN) CAN retrigger workflow runs, i.e. an infinite loop.
+    if: github.repository_owner == 'devAccount-fullstack' || github.repository_owner == 'Fullstack-HQ'
     steps:
       - name: Checkout this repo
         uses: actions/checkout@v4
