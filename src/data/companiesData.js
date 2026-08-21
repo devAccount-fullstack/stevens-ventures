@@ -191,10 +191,10 @@ export const cards = [
     categories: [
       { class: 'film', label: 'Films' },
     ],
-    bgImage: '/images/card-assets/dead-man-bg.png',
+    bgImage: '/images/card-assets/dead-mans-wire-smaller.jpg',
     logo: '',
-    heading: 'Dead Men Walking',
-    subheading: 'Dead Man Walking is a 1995 American crime drama film starring Susan Sarandon and Sean Penn.',
+    heading: 'Dead Man\'s Wire',
+    subheading: 'Dead Man\'s Wire is a 2026 American crime thriller film directed by Gus Van Sant and written by Austin Kolodney, working with historical consultants Alan Berry and Mark Enochs, who together made the 2018 documentary Dead Man\'s Line examining the same events. ',
     href: '',
   },
   {
@@ -202,10 +202,10 @@ export const cards = [
     categories: [
       { class: 'film', label: 'Films' },
     ],
-    bgImage: '/images/card-assets/thebay-bg.png',
+    bgImage: '/images/card-assets/the-bay-shark.webp',
     logo: '',
     heading: 'The Bay',
-    subheading: 'The Bay is a 2012 American mockumentary horror film directed by Barry Levinson and written by Michael Wallach.',
+    subheading: 'The Bay is a 2026 survival thriller that combines disaster and shark-attack elements as a group of tourists become trapped in a deadly marine environment in Thailand.',
     href: '',
   },
 ];
