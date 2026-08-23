@@ -5,6 +5,18 @@ import { careersData } from '../data/careersData.js';
 export function renderCardSlider() {
   const { title, categories, jobs } = careersData;
 
+  if (!jobs.length) {
+    return `
+      <section class="careers">
+        <h2>• ${title}</h2>
+        <p>No public openings are currently listed. Please use the contact page for employment inquiries.</p>
+        <div class="button-group-wrapper">
+          <a class="btn accent icon" href="/contact-us/">Contact Stevens Ventures</a>
+        </div>
+      </section>
+    `;
+  }
+
   const categoryButtons = categories.map(cat =>
     `<button class="job-cat ${cat.class}">${cat.label}</button>`
   ).join('');
