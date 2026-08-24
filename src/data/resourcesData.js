@@ -6,24 +6,24 @@ export const resourcesData = {
   cards: [
     {
       image: "/images/article-img1.png",
-      title: "Stevens leads £5 million round in Renew Risk",
-      description: "Molten is delighted to welcome Renew Risk to its portfolio. Renew Risk is domain leader in risk modelling and analytics for renewable...",
+      title: "Amtrak Improvement Initiative",
+      description: "Practical ideas for improving passenger rail cars, connectivity, service efficiency, and punctuality.",
       buttonText: "Explore",
-      href: "#",
+      href: "/resources/amtrak-improvement-initiative",
     },
     {
       image: "/images/article-img2.png",
-      title: "sasAndrew Zimmermann announced as Stevens CFO",
-      description: "We are delighted to announce the appointment of Andrew Zimmermann as a Director and CFO of Stevens Universal. Andrew has served as ...",
+      title: "Questions to Ask Yourself Before Starting a Business",
+      description: "A practical checklist covering demand, competition, readiness, funding, registration, taxes, and contingency planning.",
       buttonText: "Explore",
-      href: "#",
+      href: "/resources/questions-to-ask-yourself-before-starting-a-business",
     },
     {
       image: "/images/article-img3.png",
-      title: "as-built Toyota Tundra named Truck of Texas for second time da",
-      description: "In addition to the Tundra's recognition, the all-new 2024 Grand Highlander earned first place in the Full-Size SUV category.",
+      title: "David Olk Joins Punchey Board of Directors",
+      description: "Punchey's 2024 announcement that ShopKeep co-founder David Olk joined its board as a strategic advisor.",
       buttonText: "Explore",
-      href: "#",
+      href: "/resources/david-olk-co-founder-of-shopkeep-joins-punchey-inc-board-of-directors",
     },
     
   ],

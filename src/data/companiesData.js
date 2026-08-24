@@ -1,7 +1,7 @@
 // data/companiesData.js
 export const categories = [
   { label: 'All Companies', filterClass: 'cat-all' },
-  { label: 'Technology&Marketing', filterClass: 'cat-tech', dataFilter: 'card-tech' },
+  { label: 'Technology & Marketing', filterClass: 'cat-tech', dataFilter: 'card-tech' },
   { label: 'Automotive Retail', filterClass: 'cat-auto', dataFilter: 'card-auto' },
   { label: 'Investors', filterClass: 'cat-inv', dataFilter: 'card-inv' },
   { label: 'Rental & Short Term Accommodation', filterClass: 'cat-rent', dataFilter: 'card-rent,card-sta' },
@@ -24,7 +24,7 @@ export const cards = [
   {
     cardClasses: ['card-tech'],
     categories: [
-      { class: 'tech', label: 'Technology&Marketing' },
+      { class: 'tech', label: 'Technology & Marketing' },
     ],
     bgImage: '/images/card-assets/yodle-bg.png',
     logo: '/images/card-assets/yodle-logo.svg',
@@ -46,12 +46,12 @@ export const cards = [
   {
     cardClasses: ['card-tech'],
     categories: [
-      { class: 'tech', label: 'Technology&Marketing' },
+      { class: 'tech', label: 'Technology & Marketing' },
     ],
     bgImage: '/images/card-assets/tattoopro-bg.png',
     logo: '/images/card-assets/tattoopro-logo.svg',
     heading: 'TattooPro',
-    subheading: "When you're looking for exceptional new and pre-owned vehicles at the lowest prices around, Lincoln of Milford is the place to go. We have devoted ourselves to helping and serving our customers.",
+    subheading: 'TattooPro provides scheduling, client management, digital forms, payments, and marketing tools for tattoo and piercing studios.',
     href: 'https://tattoopro.io/',
   },
   {
@@ -68,7 +68,7 @@ export const cards = [
   {
     cardClasses: ['card-tech'],
     categories: [
-      { class: 'tech', label: 'Technology&Marketing' },
+      { class: 'tech', label: 'Technology & Marketing' },
     ],
     bgImage: '/images/card-assets/punchey-bg.png',
     logo: '/images/card-assets/punchey-logo.svg',
@@ -79,7 +79,7 @@ export const cards = [
   {
     cardClasses: ['card-2', 'card-tech'],
     categories: [
-      { class: 'tech', label: 'Technology&Marketing' },
+      { class: 'tech', label: 'Technology & Marketing' },
     ],
     bgImage: '/images/card-assets/lvs-bg.png',
     logo: '/images/card-assets/lvs-logo.svg',
@@ -90,7 +90,7 @@ export const cards = [
   {
     cardClasses: ['card-2', 'card-tech'],
     categories: [
-      { class: 'tech', label: 'Technology&Marketing' },
+      { class: 'tech', label: 'Technology & Marketing' },
     ],
     bgImage: '/images/card-assets/detailpropos-bg.png',
     logo: '/images/card-assets/detailpropos-logo.svg',
@@ -117,7 +117,7 @@ export const cards = [
     bgImage: '/images/card-assets/milford-bg.png',
     logo: '/images/card-assets/milford-logo.svg',
     heading: 'Stevens Ford of Milford',
-    subheading: 'At Stevens Ford Of Milford, we believe that buying a vehicle in Milford should be as straight forward as possible.',
+    subheading: 'At Stevens Ford of Milford, we believe that buying a vehicle in Milford should be as straightforward as possible.',
     href: 'https://www.stevensfordmilford.com/',
   },
   {
@@ -128,7 +128,7 @@ export const cards = [
     bgImage: '/images/card-assets/ventures-bg.png',
     logo: '/images/card-assets/ventures-logo.svg',
     heading: 'Stevens Ventures',
-    subheading: 'At Stevens Ford Of Milford, we believe that buying a vehicle in Milford should be as straight forward as possible.',
+    subheading: 'Stevens Ventures invests in early-stage companies developing practical technology for consumers and businesses.',
     href: 'https://www.stevensventures.com/',
   },
   {
@@ -156,7 +156,7 @@ export const cards = [
   {
     cardClasses: ['card-3', 'card-sta'],
     categories: [
-      { class: 'sta', label: 'Short Term Accomodations' },
+      { class: 'sta', label: 'Short-Term Accommodations' },
     ],
     bgImage: '/images/card-assets/marthas-bg.png',
     logo: '/images/card-assets/marthas-logo.svg',
@@ -167,7 +167,7 @@ export const cards = [
   {
     cardClasses: ['card-3', 'card-sta'],
     categories: [
-      { class: 'sta', label: 'Short Term Accomodations' },
+      { class: 'sta', label: 'Short-Term Accommodations' },
     ],
     bgImage: '/images/card-assets/sawadee-bg.png',
     logo: '/images/card-assets/sawadee-logo.svg',
@@ -178,7 +178,7 @@ export const cards = [
   {
     cardClasses: ['card-3', 'card-sta'],
     categories: [
-      { class: 'sta', label: 'Short Term Accomodations' },
+      { class: 'sta', label: 'Short-Term Accommodations' },
     ],
     bgImage: '/images/card-assets/kho-pang-bg.png',
     logo: '/images/card-assets/kho-pang-logo.svg',
