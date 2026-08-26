@@ -9,6 +9,3 @@
 /media/iihtwrh557omreufn6utosvpp6p4pc   /resources/what-the-future-of-ev-adoption-will-really-look-like/   301
 /media/w3erllvurppor3m4uxbwj9cpe8e1rq   /resources/how-businesses-are-using-ai-and-automation-to-personalize-the-customer-experience-and-boost-sales-in-2024/   301
 /media/vqmnax9mj91qokbcora1q3ejj0c7rw   /resources/the-outlook-for-tech-startups-in-2024/   301
-
-# Blog rewrite
-/resources/:slug   /resources/single-post.html   200

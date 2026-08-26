@@ -1,12 +1,14 @@
 {
-  "name": "stevents-ventures",
+  "name": "stevens-ventures",
   "version": "0.0.0",
   "private": true,
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "verify:seo": "node scripts/verify-resource-seo.mjs",
+    "test": "npm run build && npm run verify:seo"
   },
   "devDependencies": {
     "vite": "^8.1.1"

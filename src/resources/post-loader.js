@@ -2,24 +2,40 @@ import '../style.css';
 import { blogData } from '../data/blogData.js';
 import { renderBlogPost } from '../components/blogPost.js';
 import { renderHero } from '../components/hero.js';
-import { slugify } from '../utils/slugify.js';
+import {
+  buildArticleSchema,
+  getArticleCanonical,
+  getArticleDescription,
+  getArticleImage,
+  getArticleSlug,
+  getArticleTitle,
+  splitArticleTitle,
+} from './articleMetadata.js';
 
 function getSlugFromURL() {
   const match = window.location.pathname.match(/^\/resources\/([^/]+)\/?$/);
   return match ? match[1] : null;
 }
 
-function splitTitle(title = '', wordCount = 3) {
-  const words = title.trim().split(/\s+/);
-  const headingLine1 = words.slice(0, wordCount).join(' ');
-  const headingAccent = words.slice(wordCount).join(' ');
-  return { headingLine1, headingAccent };
+function upsertMeta(selector, attributes) {
+  let tag = document.querySelector(selector);
+  if (!tag) {
+    tag = document.createElement('meta');
+    document.head.appendChild(tag);
+  }
+
+  Object.entries(attributes).forEach(([name, value]) => {
+    tag.setAttribute(name, value);
+  });
 }
 
-function setArticleMeta({ title, slug, description }) {
-  const canonicalUrl = `https://stevensventures.com/resources/${slug}`;
+function setArticleMeta(card) {
+  const canonicalUrl = getArticleCanonical(card);
+  const description = getArticleDescription(card);
+  const image = getArticleImage(card);
+  const title = getArticleTitle(card);
 
-  document.title = `${title} | Stevens Ventures`;
+  document.title = title;
 
   let canonicalTag = document.querySelector('link[rel="canonical"]');
   if (!canonicalTag) {
@@ -29,47 +45,37 @@ function setArticleMeta({ title, slug, description }) {
   }
   canonicalTag.setAttribute('href', canonicalUrl);
 
-  let descTag = document.querySelector('meta[name="description"]');
-  if (!descTag) {
-    descTag = document.createElement('meta');
-    descTag.setAttribute('name', 'description');
-    document.head.appendChild(descTag);
-  }
-  descTag.setAttribute('content', description || '');
+  upsertMeta('meta[name="description"]', { name: 'description', content: description });
+  upsertMeta('meta[property="og:type"]', { property: 'og:type', content: 'article' });
+  upsertMeta('meta[property="og:title"]', { property: 'og:title', content: title });
+  upsertMeta('meta[property="og:description"]', { property: 'og:description', content: description });
+  upsertMeta('meta[property="og:url"]', { property: 'og:url', content: canonicalUrl });
+  upsertMeta('meta[property="og:image"]', { property: 'og:image', content: image });
+  upsertMeta('meta[name="twitter:card"]', { name: 'twitter:card', content: 'summary_large_image' });
+  upsertMeta('meta[name="twitter:title"]', { name: 'twitter:title', content: title });
+  upsertMeta('meta[name="twitter:description"]', { name: 'twitter:description', content: description });
+  upsertMeta('meta[name="twitter:image"]', { name: 'twitter:image', content: image });
 }
 
 const slug = getSlugFromURL();
-const card = blogData.cards.find((c) => (c.slug || slugify(c.title)) === slug);
+const card = blogData.cards.find((c) => getArticleSlug(c) === slug);
 
 if (card) {
-  setArticleMeta({
-    title: card.title,
-    slug: card.slug || slug,
-    description: card.excerpt,
-  });
+  setArticleMeta(card);
 
-  const schema = document.createElement('script');
+  let schema = document.querySelector('#article-schema');
+  if (!schema) {
+    schema = document.createElement('script');
+    schema.id = 'article-schema';
+    document.head.appendChild(schema);
+  }
   schema.type = 'application/ld+json';
-  schema.textContent = JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": card.title,
-    "datePublished": card.date || card.publishDate,
-    "author": {
-      "@type": "Person",
-      "@id": "https://nathanielstevens.com/#person",
-      "name": "Nathaniel Stevens",
-      "url": "https://nathanielstevens.com/"
-    },
-    "publisher": { "@id": "https://www.stevensventures.com/#organization" },
-    "mainEntityOfPage": `https://www.stevensventures.com/resources/${slug}/`
-  });
-  document.head.appendChild(schema);
+  schema.textContent = JSON.stringify(buildArticleSchema(card));
 }
 
 const heroRoot = document.querySelector('#hero-single-post');
 if (heroRoot) {
-  const { headingLine1, headingAccent } = card ? splitTitle(card.title, 3) : {};
+  const { headingLine1, headingAccent } = card ? splitArticleTitle(card.title, 3) : {};
 
   heroRoot.innerHTML = card
     ? renderHero({

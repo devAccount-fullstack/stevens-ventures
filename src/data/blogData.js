@@ -5,6 +5,9 @@ export const blogData = {
     {
       image: "/images/article-img1.png",
       title: "Amtrak Improvement Initiative",
+      slug: "amtrak-improvement-initiative",
+      seoTitle: "Amtrak Improvement Initiative | Stevens Ventures",
+      metaDescription: "Nathaniel Stevens shares practical ideas for improving Amtrak passenger rail cars, connectivity, service efficiency, and punctuality.",
       excerpt: "Amtrak is undergoing an RFP for a new generation of trains. As a frequent consumer of Amtrak services, I understand the importance of rail investment and the gravity of getting this significant capital expenditure right.",
       fullContent: `
         <p>
@@ -127,6 +130,9 @@ export const blogData = {
     {
       image: "/images/article-img2.png",
       title: "Questions to Ask Yourself Before Starting a Business",
+      slug: "questions-to-ask-yourself-before-starting-a-business",
+      seoTitle: "Questions Before Starting a Business | Stevens Ventures",
+      metaDescription: "Nathaniel Stevens outlines questions to consider before starting a business, from demand and funding to taxes, readiness, and contingency planning.",
       excerpt: "Despite high property costs and borrowing rates, 2024 is still a promising year to start your own business. A recent survey showed millennials and “side hustlers” saw business ownership as the best way to build personal wealth in 2024. ",
       fullContent: 
             `
@@ -194,6 +200,9 @@ export const blogData = {
     {
       image: "/images/article-img3.png",
       title: "David Olk, Co-founder of ShopKeep, Joins Punchey Inc. Board of Directors ",
+      slug: "david-olk-co-founder-of-shopkeep-joins-punchey-inc-board-of-directors",
+      seoTitle: "David Olk Joins Punchey's Board | Stevens Ventures",
+      metaDescription: "Punchey announces that ShopKeep co-founder David Olk joined its board of directors as a strategic advisor in April 2024.",
       excerpt: "Olk brings extensive experience in the POS industry and will serve as a key strategic advisor as Punchey continues to expand.",
       fullContent: 
             `
@@ -259,6 +268,9 @@ export const blogData = {
     },{
       image: "/images/article-img1.png",
       title: "What the Future of EV Adoption Will Really Look Like",
+      slug: "what-the-future-of-ev-adoption-will-really-look-like",
+      seoTitle: "The Future of EV Adoption | Stevens Ventures",
+      metaDescription: "Nathaniel Stevens examines barriers to broader electric vehicle adoption, including technicians, charging, pricing, competition, and incentives.",
       excerpt: "A few years ago, electric vehicle (EV) adoption was the headline discussion of every dealership in town — investors listened, and EV vehicles were on a fast track to occupy every home in America.",
       fullContent: 
             `
@@ -324,6 +336,9 @@ export const blogData = {
     {
       image: "/images/article-img2.png",
       title: "How Businesses Are Using AI and Automation to Personalize the Customer Experience and Boost Sales in 2024",
+      slug: "how-businesses-are-using-ai-and-automation-to-personalize-the-customer-experience-and-boost-sales-in-2024",
+      seoTitle: "AI and Automation for Customer Experience | Stevens Ventures",
+      metaDescription: "Nathaniel Stevens explores how businesses use AI chatbots, personalization, and dynamic pricing to improve customer experience and sales.",
       excerpt: "Bladerunner, The Matrix, WALL-E, the Jetsons, and countless others prophesied an era when humans and artificial intelligence would cross paths. The day has finally come for avid moviegoers of the last thirty years: ",
       fullContent: 
             `
@@ -346,7 +361,7 @@ export const blogData = {
             </p>
 
             <p>
-              The next tier above AI chatbots would be virtual assistants, which rely on Natural Language DRSz Processing (NLP), and handle more complex activities and customer demands online. Today, virtual assistant tools are driving a new era of highly sophisticated IoT products, providing 24/7 customer support without requiring human intervention. These assistants can answer various customer questions, provide shopping assistance, and even make personalized product recommendations based on customer preferences and previous interactions with the brand or website. Major strides aside, when a business is ready to use virtual agents for more complex activities, they shouldn't forget to prep their customer care staff on how to specifically handle any questions that virtual assistants aren't yet capable of managing.
+              The next tier above AI chatbots would be virtual assistants, which rely on Natural Language Processing (NLP) and handle more complex activities and customer demands online. Today, virtual assistant tools are driving a new era of highly sophisticated IoT products, providing 24/7 customer support without requiring human intervention. These assistants can answer various customer questions, provide shopping assistance, and even make personalized product recommendations based on customer preferences and previous interactions with the brand or website. Major strides aside, when a business is ready to use virtual agents for more complex activities, they shouldn't forget to prep their customer care staff on how to specifically handle any questions that virtual assistants aren't yet capable of managing.
             </p>
 
             <h2>Personalized Marketing Campaigns</h2>
@@ -385,6 +400,9 @@ export const blogData = {
     {
       image: "/images/article-img3.png",
       title: "The Outlook for Tech Startups in 2024",
+      slug: "the-outlook-for-tech-startups-in-2024",
+      seoTitle: "Tech Startup Outlook for 2024 | Stevens Ventures",
+      metaDescription: "Nathaniel Stevens considers the 2024 outlook for tech startups, including Main Street technology, early-stage funding, and raising capital.",
       excerpt: "Over the past year, VCs have been forced to pull back with the rocky economy. However, ambitious entrepreneurs and startups still want to take a chance at changing the world.",
       fullContent: 
             `
