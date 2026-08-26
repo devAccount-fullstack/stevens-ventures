@@ -4,6 +4,7 @@ import { fileURLToPath } from "url";
 import { readdirSync, copyFileSync, mkdirSync, existsSync, statSync, readFileSync, writeFileSync } from "fs";
 import { join } from "path";
 import { blogData } from "./src/data/blogData.js";
+import { heroSections } from "./src/data/heroData.js";
 import { renderBlogPost } from "./src/components/blogPost.js";
 import { renderHero } from "./src/components/hero.js";
 import {
@@ -135,6 +136,28 @@ function writeResourcePages(distRootDir) {
   });
 }
 
+function writeCorePageHeroes(distRootDir) {
+  const corePages = [
+    { path: "index.html", id: "hero-section", hero: heroSections.hero1 },
+    { path: "about-us/index.html", id: "hero-section-about", hero: heroSections.heroAbout },
+    { path: "resources/index.html", id: "hero-resources", hero: heroSections.heroResources },
+    { path: "contact-us/index.html", id: "hero-contact", hero: heroSections.heroContact },
+  ];
+
+  corePages.forEach(({ path, id, hero }) => {
+    const pagePath = resolve(distRootDir, path);
+    const placeholder = `<div id="${id}"></div>`;
+    const source = readFileSync(pagePath, "utf8");
+
+    if (!source.includes(placeholder)) {
+      throw new Error(`Cannot prerender ${path}: ${id} placeholder is missing`);
+    }
+
+    const page = source.replace(placeholder, `<div id="${id}">${renderHero(hero)}</div>`);
+    writeFileSync(pagePath, page);
+  });
+}
+
 export default defineConfig({
   assetsInclude: ["**/*.json"],
   server: {
@@ -189,6 +212,10 @@ export default defineConfig({
         // Generate crawlable HTML for each article instead of serving one
         // JavaScript-only template with generic metadata at every URL.
         writeResourcePages(distRootDir);
+
+        // Preserve the current client-rendered UI while making each core
+        // page's primary H1 available in the initial crawlable HTML.
+        writeCorePageHeroes(distRootDir);
       }
     },
     {

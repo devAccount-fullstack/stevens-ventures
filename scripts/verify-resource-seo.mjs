@@ -2,6 +2,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { blogData } from '../src/data/blogData.js';
+import { heroSections } from '../src/data/heroData.js';
 import {
   getArticleCanonical,
   getArticleDescription,
@@ -14,6 +15,12 @@ const errors = [];
 const seenTitles = new Set();
 const seenCanonicals = new Set();
 const seenDescriptions = new Set();
+const corePages = [
+  { path: 'dist/index.html', id: 'hero-section', hero: heroSections.hero1 },
+  { path: 'dist/about-us/index.html', id: 'hero-section-about', hero: heroSections.heroAbout },
+  { path: 'dist/resources/index.html', id: 'hero-resources', hero: heroSections.heroResources },
+  { path: 'dist/contact-us/index.html', id: 'hero-contact', hero: heroSections.heroContact },
+];
 
 function escapeHtml(value) {
   return String(value)
@@ -87,9 +94,27 @@ for (const card of blogData.cards) {
   }
 }
 
+for (const { path, id, hero } of corePages) {
+  const pagePath = resolve(repoRoot, path);
+  if (!existsSync(pagePath)) {
+    errors.push(`${path}: built core page is missing`);
+    continue;
+  }
+
+  const html = readFileSync(pagePath, 'utf8');
+  const h1Matches = [...html.matchAll(/<h1\b[^>]*>([\s\S]*?)<\/h1>/gi)];
+  const expectedHeading = `${hero.headingLine1} ${hero.headingAccent}`.replace(/\s+/g, ' ').trim();
+
+  if (h1Matches.length !== 1) errors.push(`${path}: expected exactly one crawlable H1`);
+  if (h1Matches.length === 1 && normalizedText(h1Matches[0][1]) !== expectedHeading) {
+    errors.push(`${path}: crawlable H1 does not match the configured hero heading`);
+  }
+  if (html.includes(`<div id="${id}"></div>`)) errors.push(`${path}: primary hero is still an empty placeholder`);
+}
+
 if (errors.length) {
   console.error(errors.join('\n'));
   process.exit(1);
 }
 
-console.log(`Verified ${blogData.cards.length} static resource pages: unique title, description, canonical, social metadata, Article JSON-LD, and one H1 each.`);
+console.log(`Verified ${blogData.cards.length} static resource pages and ${corePages.length} core pages, including exactly one crawlable H1 per page.`);
